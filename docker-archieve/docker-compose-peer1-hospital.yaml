@@ -16,7 +16,7 @@ networks:
 services:
   peer1.hospital:
     container_name: peer1.hospital
-    image: hyperledger/fabric-peer:latest
+    image: hyperledger/fabric-peer:2.2
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock

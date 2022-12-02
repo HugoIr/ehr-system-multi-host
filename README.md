@@ -49,3 +49,6 @@ docker compose -f docker/docker-compose-ca.yaml up -d
 ./network-setup.sh createChannel
 ./network-setup.sh deployCC
 ./consortium/ccp-generate.sh
+
+
+docker compose -f docker/docker-compose-net-host1.yaml up -d

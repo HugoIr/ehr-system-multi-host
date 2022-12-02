@@ -62,9 +62,9 @@ CC_VERSION="1.0"
 # Chaincode definition sequence
 CC_SEQUENCE=1
 # default image tag
-IMAGETAG="latest"
+IMAGETAG="2.2"
 # default ca image tag
-CA_IMAGETAG="latest"
+CA_IMAGETAG="2.2"
 # default database
 DATABASE="couchdb"
 
@@ -136,7 +136,7 @@ NONWORKING_VERSIONS="^1\.0\. ^1\.1\. ^1\.2\. ^1\.3\. ^1\.4\."
 #     errorln "Peer binary and configuration files not found.."
 #     errorln
 #     errorln "Follow the instructions in the Fabric docs to install the Fabric Binaries:"
-#     errorln "https://hyperledger-fabric.readthedocs.io/en/latest/install.html"
+#     errorln "https://hyperledger-fabric.readthedocs.io/en/2.2/install.html"
 #     exit 1
 #   fi
 #   # use the fabric tools container to see if the samples and binaries match your
@@ -171,7 +171,7 @@ NONWORKING_VERSIONS="^1\.0\. ^1\.1\. ^1\.2\. ^1\.3\. ^1\.4\."
 #       errorln "fabric-ca-client binary not found.."
 #       errorln
 #       errorln "Follow the instructions in the Fabric docs to install the Fabric Binaries:"
-#       errorln "https://hyperledger-fabric.readthedocs.io/en/latest/install.html"
+#       errorln "https://hyperledger-fabric.readthedocs.io/en/2.2/install.html"
 #       exit 1
 #     fi
 #     CA_LOCAL_VERSION=$(fabric-ca-client version | sed -ne 's/ Version: //p')

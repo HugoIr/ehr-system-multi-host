@@ -7,7 +7,7 @@ networks:
 services:
 
   ca_hospital:
-    image: hyperledger/fabric-ca:latest
+    image: hyperledger/fabric-ca:2.2
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.hospital
@@ -24,7 +24,7 @@ services:
       - healthcare-network-1
 
   ca_insurance:
-    image: hyperledger/fabric-ca:latest
+    image: hyperledger/fabric-ca:2.2
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.insurance
@@ -41,7 +41,7 @@ services:
       - healthcare-network-1
 
   ca_orderer:
-    image: hyperledger/fabric-ca:latest
+    image: hyperledger/fabric-ca:2.2
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-orderer

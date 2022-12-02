@@ -13,7 +13,7 @@ function printHelp() {
     println "    -s <dbtype> - Peer state database to deploy: goleveldb (default) or couchdb"
     println "    -r <max retry> - CLI times out after certain number of attempts (defaults to 5)"
     println "    -d <delay> - CLI delays for a certain number of seconds (defaults to 3)"
-    println "    -i <imagetag> - Docker image tag of Fabric to deploy (defaults to \"latest\")"
+    println "    -i <imagetag> - Docker image tag of Fabric to deploy (defaults to \"2.2\")"
     println "    -cai <ca_imagetag> - Docker image tag of Fabric CA to deploy (defaults to \"${CA_IMAGETAG}\")"
     println "    -verbose - Verbose mode"
     println
@@ -82,7 +82,7 @@ function printHelp() {
     println "    -s <dbtype> - Peer state database to deploy: goleveldb (default) or couchdb"
     println "    -r <max retry> - CLI times out after certain number of attempts (defaults to 5)"
     println "    -d <delay> - CLI delays for a certain number of seconds (defaults to 3)"
-    println "    -i <imagetag> - Docker image tag of Fabric to deploy (defaults to \"latest\")"
+    println "    -i <imagetag> - Docker image tag of Fabric to deploy (defaults to \"2.2\")"
     println "    -cai <ca_imagetag> - Docker image tag of Fabric CA to deploy (defaults to \"${CA_IMAGETAG}\")"
     println "    -verbose - Verbose mode"
     println

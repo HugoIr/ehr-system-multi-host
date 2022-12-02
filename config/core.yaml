@@ -431,7 +431,7 @@ peer:
     validatorPoolSize:
 
     # The discovery service is used by clients to query information about peers,
-    # such as - which peers have joined a certain channel, what is the latest
+    # such as - which peers have joined a certain channel, what is the 2.2
     # channel config, and most importantly - given a chaincode and a channel,
     # what possible sets of peers satisfy the endorsement policy.
     discovery:
@@ -528,7 +528,7 @@ chaincode:
 
     # Enables/disables force pulling of the base docker images (listed below)
     # during user chaincode instantiation.
-    # Useful when using moving image tags (such as :latest)
+    # Useful when using moving image tags (such as :2.2)
     pull: false
 
     golang:
