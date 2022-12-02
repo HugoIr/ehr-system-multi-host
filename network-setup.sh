@@ -501,6 +501,9 @@ elif [ "${MODE}" == "up orderer" ]; then
   NETWORK_DOCKER=docker/docker-compose-net-orderer.yaml
   createConsortium
   networkUpOrderer
+elif [ "${MODE}" == "ca host1" ]; then
+  COMPOSE_FILE_CA=docker/docker-compose-net-host1.yaml
+  CAServiceUp  
 elif [ "${MODE}" == "ca hospital" ]; then
   COMPOSE_FILE_CA=docker/docker-compose-ca-hospital.yaml
   CAServiceUp
