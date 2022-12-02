@@ -322,6 +322,7 @@ csr:
    hosts:
      - 0663a14f2293
      - localhost
+     - 34.101.204.172
    ca:
       expiry: 131400h
       pathlength: 1
