@@ -1,0 +1,53 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+volumes:
+  peer0.insurance:
+
+networks:
+  healthcare-network-1:
+    name: healthcare-network-1
+
+services:
+  peer0.insurance:
+    container_name: peer0.insurance
+    image: hyperledger/fabric-peer:latest
+    environment:
+      #Generic peer variables
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=healthcare-network-1
+      - FABRIC_LOGGING_SPEC=INFO
+      # - FABRIC_LOGGING_SPEC=DEBUG
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
+      # Peer specific variabes
+      - CORE_PEER_ID=peer0.insurance
+      - CORE_PEER_ADDRESS=peer0.insurance:9051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:9051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.insurance:9052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.insurance:9051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.insurance:9051
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_LOCALMSPID=InsuranceMSP
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:19051
+    volumes:
+        - /var/run/docker.sock:/host/var/run/docker.sock
+        - ../consortium/crypto-config/peerOrganizations/insurance/peers/peer0.insurance/msp:/etc/hyperledger/fabric/msp
+        - ../consortium/crypto-config/peerOrganizations/insurance/peers/peer0.insurance/tls:/etc/hyperledger/fabric/tls
+        - peer0.insurance:/var/hyperledger/production
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: peer node start
+    ports:
+      - 9051:9051
+      - 19051:19051
+    networks:
+      - healthcare-network-1

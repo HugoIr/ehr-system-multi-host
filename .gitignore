@@ -1,0 +1,8 @@
+/node_modules/
+/package-lock.json
+/hfc-key-store/
+/chaincode/ehr/go/
+/chaincode/ehr/external/
+/chaincode/ehr/typescript/
+/consortium/crypto-config/
+/client-api/api/node_modules
