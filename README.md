@@ -52,3 +52,9 @@ docker compose -f docker/docker-compose-ca.yaml up -d
 
 
 docker compose -f docker/docker-compose-net-host1.yaml up -d
+docker compose -f docker/docker-compose-net-peer1hospital.yaml up -d
+docker compose -f docker/docker-compose-net-peer0insurance.yaml up -d
+
+
+docker-compose -f docker/docker-compose-net-host1.yaml down --volumes --remove-orphans
+docker-compose -f $COMPOSE_FILE_COUCH_ORG3 -f $COMPOSE_FILE_ORG3 down --volumes --remove-orphans
