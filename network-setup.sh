@@ -463,63 +463,45 @@ else
   CRYPTO_MODE=""
 fi
 
-# # Determine mode of operation and printing out what we asked for
-# if [ "$MODE" == "up" ]; then
-#   infoln "Starting nodes with CLI timeout of '${MAX_RETRY}' tries and CLI delay of '${CLI_DELAY}' seconds and using database '${DATABASE}' ${CRYPTO_MODE}"
-# elif [ "${MODE}" == "ca" ]; then
-#   infoln "Generating Certificates"
-# elif [ "$MODE" == "createChannel" ]; then
-#   infoln "Creating channel '${CHANNEL_NAME}'."
-#   infoln "If network is not up, starting nodes with CLI timeout of '${MAX_RETRY}' tries and CLI delay of '${CLI_DELAY}' seconds and using database '${DATABASE} ${CRYPTO_MODE}"
-# elif [ "$MODE" == "down" ]; then
-#   infoln "Stopping network"
-# elif [ "$MODE" == "restart" ]; then
-#   infoln "Restarting network"
-# elif [ "$MODE" == "deployCC" ]; then
-#   infoln "deploying chaincode on channel '${CHANNEL_NAME}'"
-# else
-#   printHelp
-#   exit 1
-# fi
 
-if [ "${MODE}" == "up peer0hos" ]; then
+if [ "${MODE}" == "up-peer0hos" ]; then
   NETWORK_DOCKER=docker/docker-compose-net-peer0hospital.yaml
   COMPOSE_FILE_COUCH=docker/docker-compose-couch-peer0hospital.yaml
   createConsortium
   networkUp
-elif [ "${MODE}" == "up peer1hos" ]; then
+elif [ "${MODE}" == "up-peer1hos" ]; then
   NETWORK_DOCKER=docker/docker-compose-net-peer1hospital.yaml
   COMPOSE_FILE_COUCH=docker/docker-compose-couch-peer1hospital.yaml
   createConsortium
   networkUp
-elif [ "${MODE}" == "up peer0ins" ]; then
+elif [ "${MODE}" == "up-peer0ins" ]; then
   NETWORK_DOCKER=docker/docker-compose-net-peer0insurance.yaml
   COMPOSE_FILE_COUCH=docker/docker-compose-couch-peer0insurance.yaml
   createConsortium
   networkUp
-elif [ "${MODE}" == "up orderer" ]; then
+elif [ "${MODE}" == "up-orderer" ]; then
   NETWORK_DOCKER=docker/docker-compose-net-orderer.yaml
   createConsortium
   networkUpOrderer
-elif [ "${MODE}" == "ca host1" ]; then
+elif [ "${MODE}" == "ca-host1" ]; then
   COMPOSE_FILE_CA=docker/docker-compose-net-host1.yaml
   CAServiceUp  
-elif [ "${MODE}" == "ca hospital" ]; then
+elif [ "${MODE}" == "ca-hospital" ]; then
   COMPOSE_FILE_CA=docker/docker-compose-ca-hospital.yaml
   CAServiceUp
-elif [ "${MODE}" == "ca insurance" ]; then
+elif [ "${MODE}" == "ca-insurance" ]; then
   COMPOSE_FILE_CA=docker/docker-compose-ca-insurance.yaml
   CAServiceUp
-elif [ "${MODE}" == "ca orderer" ]; then
+elif [ "${MODE}" == "ca-orderer" ]; then
   COMPOSE_FILE_CA=docker/docker-compose-ca-orderer.yaml
   CAServiceUp
-elif [ "${MODE}" == "channel hospital all" ]; then
+elif [ "${MODE}" == "channel-hospital-all" ]; then
   createChannel createChannel-all.sh  
-elif [ "${MODE}" == "channel hospital 1" ]; then
+elif [ "${MODE}" == "channel-hospital1" ]; then
   createChannel channel-peer0hospital.sh
-elif [ "${MODE}" == "channel hospital 2 " ]; then
+elif [ "${MODE}" == "channel-hospital2 " ]; then
   createChannel channel-peer1hospital.sh
-elif [ "${MODE}" == "channel insurance" ]; then
+elif [ "${MODE}" == "channel-insurance" ]; then
   createChannel channel-peer0insurance.sh
 elif [ "${MODE}" == "deployCC" ]; then
   deployCC
