@@ -24,7 +24,7 @@
     },
     "peers": {
         "peer0.${ORG}": {
-            "url": "grpcs://localhost:${P0PORT}",
+            "url": "grpcs://34.101.138.254:${P0PORT}",
             "tlsCACerts": {
                 "pem": "${PEERPEM}"
             },
@@ -36,7 +36,7 @@
     },
     "certificateAuthorities": {
         "ca.${ORG}": {
-            "url": "https://localhost:${CAPORT}",
+            "url": "https://34.101.138.254:${CAPORT}",
             "caName": "ca.${ORG}",
             "tlsCACerts": {
                 "pem": ["${CAPEM}"]

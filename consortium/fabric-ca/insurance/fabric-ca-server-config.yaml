@@ -322,6 +322,7 @@ csr:
    hosts:
      - ca.insurance
      - localhost
+     - 34.101.138.254
    ca:
       expiry: 131400h
       pathlength: 1
