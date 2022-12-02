@@ -10,21 +10,21 @@ function generateHospitalCertificate() {
     mkdir -p consortium/crypto-config/peerOrganizations/hospital/
     export FABRIC_CA_CLIENT_HOME=${PWD}/consortium/crypto-config/peerOrganizations/hospital/
 
-    fabric-ca-client enroll -u https://admin:adminpw@localhost:7054 --caname ca.hospital --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://admin:adminpw@34.101.100.56:7054 --caname ca.hospital --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
 
     echo 'NodeOUs:
     Enable: true
     ClientOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-hospital.pem
+        Certificate: cacerts/34.101.100.56-7054-ca-hospital.pem
         OrganizationalUnitIdentifier: client
     PeerOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-hospital.pem
+        Certificate: cacerts/34.101.100.56-7054-ca-hospital.pem
         OrganizationalUnitIdentifier: peer
     AdminOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-hospital.pem
+        Certificate: cacerts/34.101.100.56-7054-ca-hospital.pem
         OrganizationalUnitIdentifier: admin
     OrdererOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-hospital.pem
+        Certificate: cacerts/34.101.100.56-7054-ca-hospital.pem
         OrganizationalUnitIdentifier: orderer' >${PWD}/consortium/crypto-config/peerOrganizations/hospital/msp/config.yaml
 
     infoln "Registering peer0"
@@ -54,14 +54,14 @@ function generateHospitalCertificate() {
     # Peer 0
     infoln "Generating the peer0 msp"
     set -x
-    fabric-ca-client enroll -u https://peer0:peer0pw@localhost:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/msp --csr.hosts peer0.hospital --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://peer0:peer0pw@34.101.100.56:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/msp --csr.hosts peer0.hospital --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
     { set +x; } 2>/dev/null
 
     cp ${PWD}/consortium/crypto-config/peerOrganizations/hospital/msp/config.yaml ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/msp/config.yaml
 
     infoln "Generating the peer0-tls certificates"
     set -x
-    fabric-ca-client enroll -u https://peer0:peer0pw@localhost:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls --enrollment.profile tls --csr.hosts peer0.hospital --csr.hosts localhost --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://peer0:peer0pw@34.101.100.56:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls --enrollment.profile tls --csr.hosts peer0.hospital --csr.hosts localhost --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
     { set +x; } 2>/dev/null
 
     cp ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls/tlscacerts/* ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls/ca.crt
@@ -85,14 +85,14 @@ function generateHospitalCertificate() {
 
     infoln "Generating the peer1 msp"
     set -x
-    fabric-ca-client enroll -u https://peer1:peer1pw@localhost:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/msp --csr.hosts peer1.hospital --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://peer1:peer1pw@34.101.100.56:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/msp --csr.hosts peer1.hospital --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
     { set +x; } 2>/dev/null
 
     cp ${PWD}/consortium/crypto-config/peerOrganizations/hospital/msp/config.yaml ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/msp/config.yaml
 
     infoln "Generating the peer1-tls certificates"
     set -x
-    fabric-ca-client enroll -u https://peer1:peer1pw@localhost:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls --enrollment.profile tls --csr.hosts peer1.hospital --csr.hosts localhost --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://peer1:peer1pw@34.101.100.56:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls --enrollment.profile tls --csr.hosts peer1.hospital --csr.hosts localhost --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
     { set +x; } 2>/dev/null
 
     cp ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls/tlscacerts/* ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls/ca.crt
@@ -102,14 +102,14 @@ function generateHospitalCertificate() {
 
     infoln "Generating the user msp"
     set -x
-    fabric-ca-client enroll -u https://user1:user1pw@localhost:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/User1@hospital/msp --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://user1:user1pw@34.101.100.56:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/User1@hospital/msp --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
     { set +x; } 2>/dev/null
 
     cp ${PWD}/consortium/crypto-config/peerOrganizations/hospital/msp/config.yaml ${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/User1@hospital/msp/config.yaml
 
     infoln "Generating the org admin msp"
     set -x
-    fabric-ca-client enroll -u https://org1admin:org1adminpw@localhost:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/Admin@hospital/msp --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://org1admin:org1adminpw@34.101.100.56:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/Admin@hospital/msp --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
     { set +x; } 2>/dev/null
 
     cp ${PWD}/consortium/crypto-config/peerOrganizations/hospital/msp/config.yaml ${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/Admin@hospital/msp/config.yaml
