@@ -463,24 +463,24 @@ else
   CRYPTO_MODE=""
 fi
 
-# Determine mode of operation and printing out what we asked for
-if [ "$MODE" == "up" ]; then
-  infoln "Starting nodes with CLI timeout of '${MAX_RETRY}' tries and CLI delay of '${CLI_DELAY}' seconds and using database '${DATABASE}' ${CRYPTO_MODE}"
-elif [ "${MODE}" == "ca" ]; then
-  infoln "Generating Certificates"
-elif [ "$MODE" == "createChannel" ]; then
-  infoln "Creating channel '${CHANNEL_NAME}'."
-  infoln "If network is not up, starting nodes with CLI timeout of '${MAX_RETRY}' tries and CLI delay of '${CLI_DELAY}' seconds and using database '${DATABASE} ${CRYPTO_MODE}"
-elif [ "$MODE" == "down" ]; then
-  infoln "Stopping network"
-elif [ "$MODE" == "restart" ]; then
-  infoln "Restarting network"
-elif [ "$MODE" == "deployCC" ]; then
-  infoln "deploying chaincode on channel '${CHANNEL_NAME}'"
-else
-  printHelp
-  exit 1
-fi
+# # Determine mode of operation and printing out what we asked for
+# if [ "$MODE" == "up" ]; then
+#   infoln "Starting nodes with CLI timeout of '${MAX_RETRY}' tries and CLI delay of '${CLI_DELAY}' seconds and using database '${DATABASE}' ${CRYPTO_MODE}"
+# elif [ "${MODE}" == "ca" ]; then
+#   infoln "Generating Certificates"
+# elif [ "$MODE" == "createChannel" ]; then
+#   infoln "Creating channel '${CHANNEL_NAME}'."
+#   infoln "If network is not up, starting nodes with CLI timeout of '${MAX_RETRY}' tries and CLI delay of '${CLI_DELAY}' seconds and using database '${DATABASE} ${CRYPTO_MODE}"
+# elif [ "$MODE" == "down" ]; then
+#   infoln "Stopping network"
+# elif [ "$MODE" == "restart" ]; then
+#   infoln "Restarting network"
+# elif [ "$MODE" == "deployCC" ]; then
+#   infoln "deploying chaincode on channel '${CHANNEL_NAME}'"
+# else
+#   printHelp
+#   exit 1
+# fi
 
 if [ "${MODE}" == "up peer0hos" ]; then
   NETWORK_DOCKER=docker/docker-compose-net-peer0hospital.yaml
