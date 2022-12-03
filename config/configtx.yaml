@@ -69,10 +69,10 @@ Organizations:
         # cross-org gossip communication. Note, this value is only encoded in
         # the genesis block in the Application section context.
         AnchorPeers:
-            - Host: 34.101.204.172
-              Port: 7051
-            - Host: 34.128.89.87
-              Port: 8051
+            - Host: peer0.hospital
+              Port: 7051           
+            - Host: peer1.hospital
+              Port: 8051 
 
 ################################################################################
 #
