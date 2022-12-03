@@ -13,7 +13,7 @@
 ################################################################################
 General:
     # Listen address: The IP on which to bind to listen.
-    ListenAddress: 127.0.0.1
+    ListenAddress: 34.101.204.172
 
     # Listen port: The port on which to bind to listen.
     ListenPort: 7050
@@ -293,7 +293,7 @@ Debug:
 ################################################################################
 Operations:
     # host and port for the operations server
-    ListenAddress: 127.0.0.1:8443
+    ListenAddress: 34.101.204.172:8443
 
     # TLS configuration for the operations endpoint
     TLS:
@@ -331,7 +331,7 @@ Metrics:
       Network: udp
 
       # the statsd server address
-      Address: 127.0.0.1:8125
+      Address: 34.101.204.172:8125
 
       # The interval at which locally cached counters and gauges are pushed
       # to statsd; timings are pushed immediately
