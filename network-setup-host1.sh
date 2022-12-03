@@ -103,7 +103,7 @@ function createConsortium() {
   # Note: For some unknown reason (at least for now) the block file can't be
   # named orderer.genesis.block or the orderer will fail to launch!
   set -x
-  configtxgen -profile TwoOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
+  sudo configtxgen -profile TwoOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
   res=$?
   { set +x; } 2>/dev/null
   if [ $res -ne 0 ]; then
@@ -130,7 +130,7 @@ NONWORKING_VERSIONS="^1\.0\. ^1\.1\. ^1\.2\. ^1\.3\. ^1\.4\."
 # Create Organization crypto material using cryptogen or CAs
 function createOrgs() {
   if [ -d "consortium/crypto-config/peerOrganizations" ]; then
-    rm -Rf consortium/crypto-config/peerOrganizations && rm -Rf consortium/crypto-config/ordererOrganizations
+    sudo rm -Rf consortium/crypto-config/peerOrganizations && sudo rm -Rf consortium/crypto-config/ordererOrganizations
   fi
 
   # Create crypto material using cryptogen

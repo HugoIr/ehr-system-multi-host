@@ -80,9 +80,9 @@ Organizations:
                 Rule: "OR('HospitalMSP.peer')"
         
         AnchorPeers:
-            - Host: 127.0.0.1
+            - Host: 34.101.204.172
               Port: 7051           
-            - Host: 127.0.0.1
+            - Host: 34.128.89.87
               Port: 8051           
 
     - &Insurance
