@@ -42,7 +42,7 @@ Organizations:
                 Rule: "OR('OrdererMSP.admin')"
 
         OrdererEndpoints:
-            - orderer.example.com:7050
+            - 34.101.204.172:7050
 
     - &Hospital
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -120,7 +120,7 @@ Organizations:
                 Type: Signature
                 Rule: "OR('InsuranceMSP.peer')"
         AnchorPeers:
-            - Host: 127.0.0.1
+            - Host: 34.101.138.254
               Port: 9051            
 ################################################################################
 #
@@ -233,11 +233,11 @@ Orderer: &OrdererDefaults
     # as TLS validation.  The preferred way to specify orderer addresses is now
     # to include the OrdererEndpoints item in your org definition
     Addresses:
-        - orderer.example.com:7050
+        - 34.101.204.172.com:7050
 
     EtcdRaft:
         Consenters:
-        - Host: orderer.example.com
+        - Host: 34.101.204.172
           Port: 7050
           ClientTLSCert: ../consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
           ServerTLSCert: ../consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
