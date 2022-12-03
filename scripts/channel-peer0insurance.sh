@@ -8,10 +8,10 @@
 FABRIC_CFG_PATH=$PWD/config
 BLOCKFILE="./channel-artifacts/${CHANNEL_NAME}.block"
 
-infoln "Joining org1 peer1.hospital1 to the channel..."
-joinChannel 3
-infoln "Setting anchor peer1.hospital for org2..."
-setAnchorPeer 3
+infoln "Joining org2 peer to the channel..."
+joinChannel 2
+infoln "Setting anchor peer for org2..."
+setAnchorPeer 2
 
 
 successln "Channel '$CHANNEL_NAME' joined"
