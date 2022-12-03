@@ -12,8 +12,8 @@ volumes:
 
 networks:
   healthcare-network-1:
-    external:
       name: healthcare-network-1
+      external: true
 
 services:
   orderer.example.com:

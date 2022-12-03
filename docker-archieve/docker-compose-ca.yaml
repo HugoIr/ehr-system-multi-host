@@ -2,8 +2,8 @@ version: '2'
 
 networks:
   healthcare-network-1:
-    external:
       name: healthcare-network-1
+      external: true
 
 services:
 
