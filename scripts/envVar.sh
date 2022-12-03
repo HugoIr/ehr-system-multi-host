@@ -15,7 +15,7 @@ export ORDERER_CA=${PWD}/consortium/crypto-config/ordererOrganizations/example.c
 export PEER0_ORG1_CA=${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls/ca.crt
 export PEER1_ORG1_CA=${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls/ca.crt
 export PEER0_ORG2_CA=${PWD}/consortium/crypto-config/peerOrganizations/insurance/peers/peer0.insurance/tls/ca.crt
-export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/tlscacerts/tls-localhost-9054-ca-orderer.pem
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/tlscacerts/tls-34.101.204.172-9054-ca-orderer.pem
 export CORE_PEER_MSPCONFIGPATH=${PWD}/consortium/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp
 
 # Set environment variables for the peer org
@@ -31,19 +31,19 @@ setGlobals() {
     export CORE_PEER_LOCALMSPID="HospitalMSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/Admin@hospital/msp
-    export CORE_PEER_ADDRESS=localhost:7051
+    export CORE_PEER_ADDRESS=34.101.204.172:7051
     infoln "Using organization 1"
   elif [ $USING_ORG -eq 2 ]; then
     export CORE_PEER_LOCALMSPID="InsuranceMSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/consortium/crypto-config/peerOrganizations/insurance/users/Admin@insurance/msp
-    export CORE_PEER_ADDRESS=localhost:9051
+    export CORE_PEER_ADDRESS=34.101.204.172:9051
     infoln "Using organization 2"
   elif [ $USING_ORG -eq 3 ]; then
     export CORE_PEER_LOCALMSPID="HospitalMSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/Admin@hospital/msp
-    export CORE_PEER_ADDRESS=localhost:8051
+    export CORE_PEER_ADDRESS=34.128.89.87:8051
     infoln "Using organization 1"
   else
     errorln "ORG Unknown"
