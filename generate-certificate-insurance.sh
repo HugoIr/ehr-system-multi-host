@@ -15,16 +15,16 @@ function generateInsuranceCertificate() {
     echo 'NodeOUs:
     Enable: true
     ClientOUIdentifier:
-        Certificate: cacerts/localhost-8054-ca-insurance.pem
+        Certificate: cacerts/34.101.138.254-8054-ca-insurance.pem
         OrganizationalUnitIdentifier: client
     PeerOUIdentifier:
-        Certificate: cacerts/localhost-8054-ca-insurance.pem
+        Certificate: cacerts/34.101.138.254-8054-ca-insurance.pem
         OrganizationalUnitIdentifier: peer
     AdminOUIdentifier:
-        Certificate: cacerts/localhost-8054-ca-insurance.pem
+        Certificate: cacerts/34.101.138.254-8054-ca-insurance.pem
         OrganizationalUnitIdentifier: admin
     OrdererOUIdentifier:
-        Certificate: cacerts/localhost-8054-ca-insurance.pem
+        Certificate: cacerts/34.101.138.254-8054-ca-insurance.pem
         OrganizationalUnitIdentifier: orderer' >${PWD}/consortium/crypto-config/peerOrganizations/insurance/msp/config.yaml
 
     infoln "Registering peer0"

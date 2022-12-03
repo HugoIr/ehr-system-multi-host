@@ -15,16 +15,16 @@ function generateHospitalCertificate() {
     echo 'NodeOUs:
     Enable: true
     ClientOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-hospital.pem
+        Certificate: cacerts/34.101.204.172-7054-ca-hospital.pem
         OrganizationalUnitIdentifier: client
     PeerOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-hospital.pem
+        Certificate: cacerts/34.101.204.172-7054-ca-hospital.pem
         OrganizationalUnitIdentifier: peer
     AdminOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-hospital.pem
+        Certificate: cacerts/34.101.204.172-7054-ca-hospital.pem
         OrganizationalUnitIdentifier: admin
     OrdererOUIdentifier:
-        Certificate: cacerts/localhost-7054-ca-hospital.pem
+        Certificate: cacerts/34.101.204.172-7054-ca-hospital.pem
         OrganizationalUnitIdentifier: orderer' >${PWD}/consortium/crypto-config/peerOrganizations/hospital/msp/config.yaml
 
     infoln "Registering peer0"
