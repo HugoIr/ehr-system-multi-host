@@ -29,17 +29,31 @@ services:
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
       # Peer specific variabes
-      - CORE_PEER_ID=peer1.hospital
-      - CORE_PEER_ADDRESS=34.128.89.87:8051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
-      - CORE_PEER_CHAINCODEADDRESS=34.128.89.87:8052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=34.101.204.172:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=34.128.89.87:8051
+
+      # - CORE_PEER_ID=peer1.hospital
+      # - CORE_PEER_ADDRESS=34.128.89.87:8051
+      # - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
+      # - CORE_PEER_CHAINCODEADDRESS=34.128.89.87:8052
+      # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
+      # - CORE_PEER_GOSSIP_BOOTSTRAP=34.101.204.172:7051
+      # - CORE_PEER_GOSSIP_EXTERNALENDPOINT=34.128.89.87:8051
+      # - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      # - CORE_PEER_GOSSIP_ORGLEADER=false
+      # - CORE_PEER_LOCALMSPID=HospitalMSP
+      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:18051
+      
       - CORE_PEER_GOSSIP_USELEADERELECTION=true
       - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_ID=peer1.hospital
+      - CORE_PEER_ADDRESS=peer1.hospital:8051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
+      - CORE_PEER_CHAINCODEADDRESS=peer1.hospital:8052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.hospital:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.hospital:8051
       - CORE_PEER_LOCALMSPID=HospitalMSP
       - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:18051
+
     volumes:
         - /var/run/docker.sock:/host/var/run/docker.sock
         - ../consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/msp:/etc/hyperledger/fabric/msp
