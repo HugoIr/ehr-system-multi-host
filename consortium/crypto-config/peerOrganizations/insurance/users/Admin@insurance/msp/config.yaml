@@ -1,0 +1,14 @@
+NodeOUs:
+    Enable: true
+    ClientOUIdentifier:
+        Certificate: cacerts/34.101.138.254-8054-ca-insurance.pem
+        OrganizationalUnitIdentifier: client
+    PeerOUIdentifier:
+        Certificate: cacerts/34.101.138.254-8054-ca-insurance.pem
+        OrganizationalUnitIdentifier: peer
+    AdminOUIdentifier:
+        Certificate: cacerts/34.101.138.254-8054-ca-insurance.pem
+        OrganizationalUnitIdentifier: admin
+    OrdererOUIdentifier:
+        Certificate: cacerts/34.101.138.254-8054-ca-insurance.pem
+        OrganizationalUnitIdentifier: orderer

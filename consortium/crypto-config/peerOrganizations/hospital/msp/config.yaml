@@ -1,0 +1,14 @@
+NodeOUs:
+    Enable: true
+    ClientOUIdentifier:
+        Certificate: cacerts/34.101.204.172-7054-ca-hospital.pem
+        OrganizationalUnitIdentifier: client
+    PeerOUIdentifier:
+        Certificate: cacerts/34.101.204.172-7054-ca-hospital.pem
+        OrganizationalUnitIdentifier: peer
+    AdminOUIdentifier:
+        Certificate: cacerts/34.101.204.172-7054-ca-hospital.pem
+        OrganizationalUnitIdentifier: admin
+    OrdererOUIdentifier:
+        Certificate: cacerts/34.101.204.172-7054-ca-hospital.pem
+        OrganizationalUnitIdentifier: orderer
