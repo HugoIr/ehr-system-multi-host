@@ -282,14 +282,12 @@ chaincodeQuery() {
   fi
 }
 
-infoln "Install chaincode on peer0.insurance..."
-installChaincode 2
+infoln "Install chaincode on peer1.hospital..."
+installChaincode 3
 
-# query whether the chaincode is installed
-queryInstalled 1
 
-# approve the definition for hospital
-approveForMyOrg 1
+# # approve the definition for hospital
+# approveForMyOrg 1
 
 # ## check whether the chaincode definition is ready to be committed
 # ## expect hospital to have approved and org2 not to
