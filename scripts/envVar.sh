@@ -31,19 +31,19 @@ setGlobals() {
     export CORE_PEER_LOCALMSPID="HospitalMSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/Admin@hospital/msp
-    export CORE_PEER_ADDRESS=peer0.hospital:7051
+    export CORE_PEER_ADDRESS=34.101.204.172:7051
     infoln "Using organization 1"
   elif [ $USING_ORG -eq 2 ]; then
     export CORE_PEER_LOCALMSPID="InsuranceMSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/consortium/crypto-config/peerOrganizations/insurance/users/Admin@insurance/msp
-    export CORE_PEER_ADDRESS=peer0.insurance:9051
+    export CORE_PEER_ADDRESS=34.101.138.254:9051
     infoln "Using organization 2"
   elif [ $USING_ORG -eq 3 ]; then
     export CORE_PEER_LOCALMSPID="HospitalMSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG1_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/consortium/crypto-config/peerOrganizations/hospital/users/Admin@hospital/msp
-    export CORE_PEER_ADDRESS=peer1.hospital:8051
+    export CORE_PEER_ADDRESS=34.128.89.87:8051
     infoln "Using organization 1"
   else
     errorln "ORG Unknown"
