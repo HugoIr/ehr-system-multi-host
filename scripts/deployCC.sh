@@ -296,7 +296,7 @@ chaincodeQuery() {
 # installChaincode 2
 
 # # query whether the chaincode is installed
-# queryInstalled 1
+queryInstalled 1
 
 # approve the definition for hospital
 approveForMyOrg 1
