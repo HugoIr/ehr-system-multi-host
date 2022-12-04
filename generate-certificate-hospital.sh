@@ -61,7 +61,7 @@ function generateHospitalCertificate() {
 
     infoln "Generating the peer0-tls certificates"
     set -x
-    fabric-ca-client enroll -u https://peer0:peer0pw@34.101.204.172:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls --enrollment.profile tls --csr.hosts peer0.hospital --csr.hosts localhost --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://peer0:peer0pw@34.101.204.172:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls --enrollment.profile tls --csr.hosts peer0.hospital --csr.hosts 34.101.204.172 --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
     { set +x; } 2>/dev/null
 
     cp ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls/tlscacerts/* ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls/ca.crt
@@ -92,7 +92,7 @@ function generateHospitalCertificate() {
 
     infoln "Generating the peer1-tls certificates"
     set -x
-    fabric-ca-client enroll -u https://peer1:peer1pw@34.101.204.172:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls --enrollment.profile tls --csr.hosts peer1.hospital --csr.hosts localhost --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
+    fabric-ca-client enroll -u https://peer1:peer1pw@34.101.204.172:7054 --caname ca.hospital -M ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls --enrollment.profile tls --csr.hosts peer1.hospital --csr.hosts 34.128.89.87 --tls.certfiles ${PWD}/consortium/fabric-ca/hospital/tls-cert.pem
     { set +x; } 2>/dev/null
 
     cp ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls/tlscacerts/* ${PWD}/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls/ca.crt
