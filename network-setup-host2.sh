@@ -33,7 +33,7 @@ CHANNEL_NAME="hospital-channel"
 # chaincode name defaults to "NA"
 CC_NAME="fab-healthcare"
 # chaincode path defaults to "NA"
-CC_SRC_PATH="../../../chaincode/ehr/javascript/"
+CC_SRC_PATH="github.com/chaincode/ehr/javascript"
 # endorsement policy defaults to "NA". This would allow chaincodes to use the majority default policy.
 CC_END_POLICY="NA"
 # collection configuration defaults to "NA"
