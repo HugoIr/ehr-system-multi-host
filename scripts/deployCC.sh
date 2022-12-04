@@ -111,7 +111,7 @@ fi
 
 packageChaincode() {
   set -x
-  peer lifecycle chaincode package ${CC_NAME}.tar.gz --path ${CC_SRC_PATH} --lang ${CC_RUNTIME_LANGUAGE} --label ${CC_NAME}_${CC_VERSION} >&log.txt
+  docker exec cli peer lifecycle chaincode package ${CC_NAME}.tar.gz --path ${CC_SRC_PATH} --lang ${CC_RUNTIME_LANGUAGE} --label ${CC_NAME}_${CC_VERSION} >&log.txt
   res=$?
   { set +x; } 2>/dev/null
   cat log.txt
@@ -124,7 +124,7 @@ installChaincode() {
   ORG=$1
   setGlobals $ORG
   set -x
-  peer lifecycle chaincode install ${CC_NAME}.tar.gz >&log.txt
+  docker exec cli peer lifecycle chaincode install ${CC_NAME}.tar.gz >&log.txt
   res=$?
   { set +x; } 2>/dev/null
   cat log.txt
@@ -137,7 +137,7 @@ queryInstalled() {
   ORG=$1
   setGlobals $ORG
   set -x
-  peer lifecycle chaincode queryinstalled >&log.txt
+  docker exec cli peer lifecycle chaincode queryinstalled >&log.txt
   res=$?
   { set +x; } 2>/dev/null
   cat log.txt
@@ -151,7 +151,7 @@ approveForMyOrg() {
   ORG=$1
   setGlobals $ORG
   set -x
-  peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')"  --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --package-id ${PACKAGE_ID} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
+  docker exec cli peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')"  --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --package-id ${PACKAGE_ID} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
   res=$?
   { set +x; } 2>/dev/null
   cat log.txt
@@ -173,7 +173,7 @@ checkCommitReadiness() {
     sleep $DELAY
     infoln "Attempting to check the commit readiness of the chaincode definition on peer0.org${ORG}, Retry after $DELAY seconds."
     set -x
-    peer lifecycle chaincode checkcommitreadiness --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')"  --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} --output json >&log.txt
+    docker exec cli peer lifecycle chaincode checkcommitreadiness --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')"  --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} --output json >&log.txt
     res=$?
     { set +x; } 2>/dev/null
     let rc=0
@@ -200,7 +200,7 @@ commitChaincodeDefinition() {
   # peer (if join was successful), let's supply it directly as we know
   # it using the "-o" option
   set -x
-  peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')"  --name ${CC_NAME} $PEER_CONN_PARMS --version ${CC_VERSION} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
+  docker exec cli peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')"  --name ${CC_NAME} $PEER_CONN_PARMS --version ${CC_VERSION} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
   res=$?
   { set +x; } 2>/dev/null
   cat log.txt
@@ -222,7 +222,7 @@ queryCommitted() {
     sleep $DELAY
     infoln "Attempting to Query committed status on peer0.org${ORG}, Retry after $DELAY seconds."
     set -x
-    peer lifecycle chaincode querycommitted --channelID $CHANNEL_NAME --name ${CC_NAME} >&log.txt
+    docker exec cli peer lifecycle chaincode querycommitted --channelID $CHANNEL_NAME --name ${CC_NAME} >&log.txt
     res=$?
     { set +x; } 2>/dev/null
     test $res -eq 0 && VALUE=$(cat log.txt | grep -o '^Version: '$CC_VERSION', Sequence: [0-9]*, Endorsement Plugin: escc, Validation Plugin: vscc')
@@ -248,7 +248,7 @@ chaincodeInvokeInit() {
   set -x
   fcn_call='{"function":"'${CC_INIT_FCN}'","Args":[]}'
   infoln "invoke fcn call:${fcn_call}"
-  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${CC_NAME} $PEER_CONN_PARMS --isInit -c ${fcn_call} >&log.txt
+  docker exec cli peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${CC_NAME} $PEER_CONN_PARMS --isInit -c ${fcn_call} >&log.txt
   res=$?
   { set +x; } 2>/dev/null
   cat log.txt
@@ -268,7 +268,7 @@ chaincodeQuery() {
     sleep $DELAY
     infoln "Attempting to Query peer0.org${ORG}, Retry after $DELAY seconds."
     set -x
-    peer chaincode query -C $CHANNEL_NAME -n ${CC_NAME} -c '{"Args":["queryAllCars"]}' >&log.txt
+    docker exec cli peer chaincode query -C $CHANNEL_NAME -n ${CC_NAME} -c '{"Args":["queryAllCars"]}' >&log.txt
     res=$?
     { set +x; } 2>/dev/null
     let rc=$res
@@ -282,51 +282,51 @@ chaincodeQuery() {
   fi
 }
 
-# package the chaincode
-packageChaincode
+# # package the chaincode
+# packageChaincode
 
-## Install chaincode on peer0.hospital and peer0.org2
-infoln "Installing chaincode on peer0.hospital..."
-installChaincode 1
+# ## Install chaincode on peer0.hospital and peer0.org2
+# infoln "Installing chaincode on peer0.hospital..."
+# installChaincode 1
 
-infoln "Install chaincode on peer1.hospital..."
-installChaincode 3
+# infoln "Install chaincode on peer1.hospital..."
+# installChaincode 3
 
-infoln "Install chaincode on peer0.insurance..."
-installChaincode 2
+# infoln "Install chaincode on peer0.insurance..."
+# installChaincode 2
 
-# query whether the chaincode is installed
-queryInstalled 1
+# # query whether the chaincode is installed
+# queryInstalled 1
 
-# approve the definition for hospital
-approveForMyOrg 1
+# # approve the definition for hospital
+# approveForMyOrg 1
 
-## check whether the chaincode definition is ready to be committed
-## expect hospital to have approved and org2 not to
-checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
-checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
+# ## check whether the chaincode definition is ready to be committed
+# ## expect hospital to have approved and org2 not to
+# checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
+# checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
 
-## now approve also for insurance
-approveForMyOrg 2
+# ## now approve also for insurance
+# approveForMyOrg 2
 
-## check whether the chaincode definition is ready to be committed
-## expect them both to have approved
-checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
-checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
+# ## check whether the chaincode definition is ready to be committed
+# ## expect them both to have approved
+# checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
+# checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
 
-## now that we know for sure both orgs have approved, commit the definition
-commitChaincodeDefinition 1 2 3
+# ## now that we know for sure both orgs have approved, commit the definition
+# commitChaincodeDefinition 1 2 3
 
-## query on both orgs to see that the definition committed successfully
-queryCommitted 1
-queryCommitted 2
+# ## query on both orgs to see that the definition committed successfully
+# queryCommitted 1
+# queryCommitted 2
 
-## Invoke the chaincode - this does require that the chaincode have the 'initLedger'
-## method defined
-if [ "$CC_INIT_FCN" = "NA" ]; then
-  infoln "Chaincode initialization is not required"
-else
-  chaincodeInvokeInit 1 2
-fi
+# ## Invoke the chaincode - this does require that the chaincode have the 'initLedger'
+# ## method defined
+# if [ "$CC_INIT_FCN" = "NA" ]; then
+#   infoln "Chaincode initialization is not required"
+# else
+#   chaincodeInvokeInit 1 2
+# fi
 
-exit 0
+# exit 0
