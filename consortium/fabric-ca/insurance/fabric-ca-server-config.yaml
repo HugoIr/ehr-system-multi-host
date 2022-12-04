@@ -321,11 +321,7 @@ csr:
         OU: Fabric
    hosts:
      - ca.insurance
-     - localhost
-     - 34.101.204.172
-     - 34.128.89.87
      - 34.101.138.254
-     - 34.101.100.56
    ca:
       expiry: 131400h
       pathlength: 1
@@ -468,7 +464,7 @@ cfg:
 ###############################################################################
 operations:
     # host and port for the operations server
-    listenAddress: 127.0.0.1:9443
+    listenAddress: 34.101.138.254:9443
 
     # TLS configuration for the operations endpoint
     tls:
@@ -505,7 +501,7 @@ metrics:
         network: udp
 
         # statsd server address
-        address: 127.0.0.1:8125
+        address: 34.101.138.254:8125
 
         # the interval at which locally cached counters and gauges are pushed
         # to statsd; timings are pushed immediately
