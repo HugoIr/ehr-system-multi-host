@@ -71,7 +71,7 @@ joinChannel() {
     sleep $DELAY
     set -x
 	# join by giving genesis block path
-    docker exec cli peer channel join -b $BLOCKFILE >&log.txt
+    peer channel join -b $BLOCKFILE >&log.txt
     res=$?
     { set +x; } 2>/dev/null
 		let rc=$res
@@ -83,7 +83,7 @@ joinChannel() {
 
 setAnchorPeer() {
   ORG=$1
-  docker exec cli ./scripts/setAnchorPeer.sh $ORG $CHANNEL_NAME 
+  ./scripts/setAnchorPeer.sh $ORG $CHANNEL_NAME 
 }
 
 FABRIC_CFG_PATH=${PWD}/configtx
