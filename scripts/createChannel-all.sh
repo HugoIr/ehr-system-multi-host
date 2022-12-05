@@ -28,6 +28,8 @@ BLOCKFILE="./channel-artifacts/${CHANNEL_NAME}.block"
 
 # infoln "Joining org2 peer to the channel..."
 # joinChannel 2
+
+setGlobals 2
 infoln "Setting anchor peer for org2..."
 setAnchorPeer 2
 
