@@ -1,0 +1,87 @@
+hugo_irwanto91@host1-ehr-system:~/ehr-system-multi-host$ sudo ./network-setup-host1.sh deployCCAll
+executing with the following
+- CHANNEL_NAME: hospital-channel
+- CC_NAME: fab-healthcare
+- CC_SRC_PATH: /opt/gopath/src/github.com/chaincode/ehr/javascript/
+- CC_SRC_LANGUAGE: javascript
+- CC_VERSION: 1.0
+- CC_SEQUENCE: 2
+- CC_END_POLICY: NA
+- CC_COLL_CONFIG: NA
+- CC_INIT_FCN: initLedger
+- DELAY: 3
+- MAX_RETRY: 5
+- VERBOSE: false
+Using organization 1
++ peer lifecycle chaincode queryinstalled
++ res=0
+Installed chaincodes on peer:
+Package ID: fab-healthcare_1.0:489bcebe0eb59489ee1aaef8c5837def60e40aecd2e192518680461583cbd298, Label: fab-healthcare_1.0
+Package ID: fab-healthcare_1.0:2e021306b860c28327a0fc9193e71e8c3081ae2bf8f5b500c1267a52c3cd2743, Label: fab-healthcare_1.0
+Query installed successful on peer0.org1 on channel
+Using organization 1
++ peer lifecycle chaincode approveformyorg -o 34.101.204.172:7050 --ordererTLSHostnameOverride orderer.example.com --signature-policy 'OR('\''HospitalMSP.member'\'', '\''InsuranceMSP.member'\'')' --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID hospital-channel --name fab-healthcare --version 1.0 --package-id fab-healthcare_1.0:489bcebe0eb59489ee1aaef8c5837def60e40aecd2e192518680461583cbd298 fab-healthcare_1.0:2e021306b860c28327a0fc9193e71e8c3081ae2bf8f5b500c1267a52c3cd2743 --sequence 2 --init-required
++ res=0
+2022-12-05 08:16:25.432 UTC [chaincodeCmd] ClientWait -> INFO 001 txid [d1263c6fd753d7dc5c6b494991972615a66fa18020bbe08af4cc5ffd4f074b30] committed with status (VALID) at 34.101.204.172:7051
+Chaincode definition approved on peer0.org1 on channel 'hospital-channel'
+Using organization 1
+Checking the commit readiness of the chaincode definition on peer0.org1 on channel 'hospital-channel'...
+Attempting to check the commit readiness of the chaincode definition on peer0.org1, Retry after 3 seconds.
++ peer lifecycle chaincode checkcommitreadiness --signature-policy 'OR('\''HospitalMSP.member'\'', '\''InsuranceMSP.member'\'')' --channelID hospital-channel --name fab-healthcare --version 1.0 --sequence 2 --init-required --output json
++ res=0
+{
+        "approvals": {
+                "HospitalMSP": true,
+                "InsuranceMSP": false
+        }
+}
+Checking the commit readiness of the chaincode definition successful on peer0.org1 on channel 'hospital-channel'
+Using organization 2
+Checking the commit readiness of the chaincode definition on peer0.org2 on channel 'hospital-channel'...
++ peer lifecycle chaincode checkcommitreadiness --signature-policy 'OR('\''HospitalMSP.member'\'', '\''InsuranceMSP.member'\'')' --channelID hospital-channel --name fab-healthcare --version 1.0 --sequence 2 --init-required --output json
+Attempting to check the commit readiness of the chaincode definition on peer0.org2, Retry after 3 seconds.
++ res=0
+{
+        "approvals": {
+                "HospitalMSP": true,
+                "InsuranceMSP": false
+        }
+}
+Checking the commit readiness of the chaincode definition successful on peer0.org2 on channel 'hospital-channel'
+Using organization 2
++ peer lifecycle chaincode approveformyorg -o 34.101.204.172:7050 --ordererTLSHostnameOverride orderer.example.com --signature-policy 'OR('\''HospitalMSP.member'\'', '\''InsuranceMSP.member'\'')' --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID hospital-channel --name fab-healthcare --version 1.0 --package-id fab-healthcare_1.0:489bcebe0eb59489ee1aaef8c5837def60e40aecd2e192518680461583cbd298 fab-healthcare_1.0:2e021306b860c28327a0fc9193e71e8c3081ae2bf8f5b500c1267a52c3cd2743 --sequence 2 --init-required
++ res=0
+2022-12-05 08:16:33.781 UTC [chaincodeCmd] ClientWait -> INFO 001 txid [f950d65c408e28db4bdc3af23b18d339a26e4cd1553ddd4161a7f88cbded46b8] committed with status (VALID) at 34.101.138.254:9051
+Chaincode definition approved on peer0.org2 on channel 'hospital-channel'
+Using organization 1
+Checking the commit readiness of the chaincode definition on peer0.org1 on channel 'hospital-channel'...
+Attempting to check the commit readiness of the chaincode definition on peer0.org1, Retry after 3 seconds.
++ peer lifecycle chaincode checkcommitreadiness --signature-policy 'OR('\''HospitalMSP.member'\'', '\''InsuranceMSP.member'\'')' --channelID hospital-channel --name fab-healthcare --version 1.0 --sequence 2 --init-required --output json
++ res=0
+{
+        "approvals": {
+                "HospitalMSP": true,
+                "InsuranceMSP": true
+        }
+}
+Checking the commit readiness of the chaincode definition successful on peer0.org1 on channel 'hospital-channel'
+Using organization 2
+Checking the commit readiness of the chaincode definition on peer0.org2 on channel 'hospital-channel'...
+Attempting to check the commit readiness of the chaincode definition on peer0.org2, Retry after 3 seconds.
++ peer lifecycle chaincode checkcommitreadiness --signature-policy 'OR('\''HospitalMSP.member'\'', '\''InsuranceMSP.member'\'')' --channelID hospital-channel --name fab-healthcare --version 1.0 --sequence 2 --init-required --output json
++ res=0
+{
+        "approvals": {
+                "HospitalMSP": true,
+                "InsuranceMSP": true
+        }
+}
+Checking the commit readiness of the chaincode definition successful on peer0.org2 on channel 'hospital-channel'
+Using organization 1
+Using organization 2
+Using organization 1
++ peer lifecycle chaincode commit -o 34.101.204.172:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID hospital-channel --signature-policy 'OR('\''HospitalMSP.member'\'', '\''InsuranceMSP.member'\'')' --name fab-healthcare --peerAddresses 34.101.204.172:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls/ca.crt --peerAddresses 34.101.138.254:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/peerOrganizations/insurance/peers/peer0.insurance/tls/ca.crt --peerAddresses 34.128.89.87:8051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls/ca.crt --version 1.0 --sequence 2 --init-required
++ res=1
+Error: failed to create signed transaction: proposal response was not successful, error code 500, msg failed to invoke backing implementation of 'CommitChaincodeDefinition': chaincode definition not agreed to by this org (HospitalMSP)
+Chaincode definition commit failed on peer0.org2 on channel 'hospital-channel' failed
+Deploying chaincode failed

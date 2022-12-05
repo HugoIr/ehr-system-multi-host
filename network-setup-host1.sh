@@ -270,6 +270,17 @@ function createChannel() {
   scripts/channel-peer0hospital.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
 }
 
+function createChannelAll() {
+  # Bring up the network if it is not already up.
+
+  if [ ! -d "consortium/crypto-config/peerOrganizations" ]; then
+    infoln "Bringing up network"
+    networkUp
+  fi
+
+  scripts/createChannel-all.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
+}
+
 
 
 # Tear down running network
@@ -433,6 +444,8 @@ elif [ "${MODE}" == "ca" ]; then
   sudo docker compose -f docker/docker-compose-ca-orderer.yaml up -d
 elif [ "${MODE}" == "createChannel" ]; then
   createChannel
+elif [ "${MODE}" == "createChannelAll" ]; then
+  createChannelAll
 elif [ "${MODE}" == "deployCC" ]; then
   deployCC
 elif [ "${MODE}" == "deployCCAll" ]; then
