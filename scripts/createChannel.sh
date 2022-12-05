@@ -60,7 +60,7 @@ createChannel() {
 
 # joinChannel ORG
 joinChannel() {
-  FABRIC_CFG_PATH=$PWD/config/
+#   FABRIC_CFG_PATH=$PWD/config/
   ORG=$1
   setGlobals $ORG
 	local rc=1

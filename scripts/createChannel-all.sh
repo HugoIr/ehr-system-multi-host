@@ -6,13 +6,13 @@
 . scripts/createChannel.sh
 
 
-FABRIC_CFG_PATH=${PWD}/configtx
+# FABRIC_CFG_PATH=${PWD}/configtx
 
 ## Create channeltx
 # infoln "Generating channel create transaction '${CHANNEL_NAME}.tx'"
 # createChannelTx
 
-FABRIC_CFG_PATH=$PWD/config
+# FABRIC_CFG_PATH=$PWD/config
 BLOCKFILE="./channel-artifacts/${CHANNEL_NAME}.block"
 
 # # Create channel

@@ -272,14 +272,29 @@ function createChannel() {
 
 function createChannelAll() {
   # Bring up the network if it is not already up.
+  
+  if [ ! -d "consortium/crypto-config/peerOrganizations" ]; then
+    infoln "Bringing up network"
+    networkUp
+  fi
+  # createChannelTx
 
+  FABRIC_CFG_PATH=$PWD/config/
+  docker exec cli scripts/createChannel-all.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
+}
+
+function createChannelTx() {
+  # Bring up the network if it is not already up.
+  FABRIC_CFG_PATH=${PWD}/configtx
   if [ ! -d "consortium/crypto-config/peerOrganizations" ]; then
     infoln "Bringing up network"
     networkUp
   fi
 
-  docker exec cli scripts/createChannel-all.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
+  docker exec cli scripts/createChannelTx.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
 }
+
+
 
 
 
