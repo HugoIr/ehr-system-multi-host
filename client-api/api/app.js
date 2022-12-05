@@ -47,7 +47,6 @@ app.get('/ehr/', urlencodedParser, async function(req, res) {
 })
 
 app.get('/insurance/ehr/', urlencodedParser, async function(req, res) {
-    console.log("insurance ehr")
     if (req.headers.authorization == undefined) {
         return res.status(401).send({"result": "Unauthorized"})
     }
@@ -119,7 +118,7 @@ app.post('/ehr/', jsonParser, async function(req, res) {
         return res.status(401).send({"result": "Unauthorized"})
     }
     try {
-        console.log("REQ", req.body)
+        
 
         const name = req.body.name;
         const dateOfBirth = req.body.dateOfBirth;
@@ -173,7 +172,7 @@ app.put('/ehr/:id', jsonParser, async function(req, res) {
         return res.status(401).send({"result": "Unauthorized"})
     }
     try {
-        console.log("REQ", req.body)
+        
 
         const name = req.body.name;
         const dateOfBirth = req.body.dateOfBirth;
@@ -224,12 +223,10 @@ app.put('/ehr/:id', jsonParser, async function(req, res) {
 
 app.post('/enroll/admin/', jsonParser, async function(req, res) {
     try{
-        console.log("REQ", req.body)
+        
         const enrollId = req.body.enrollId;
         const enrollSecret = req.body.enrollSecret;
         const organizationType = req.body.organizationType;
-        console.log("ENROLLID ", enrollId)
-        console.log("enrollSecret ", enrollSecret)
         if (enrollId != null && enrollSecret != null) {
             enrollAdmin(enrollId, enrollSecret, organizationType)
         }
@@ -248,13 +245,10 @@ app.post('/enroll/admin/', jsonParser, async function(req, res) {
 
 app.post('/register/', jsonParser, async function(req, res) {
     try{
-        console.log("REQ", req.body)
+        
         const email = req.body.email;
         const organization = req.body.organization;
         const organizationType = req.body.organizationType;
-        console.log("email ", email)
-        console.log("organization ", organization)
-        console.log("organizationType ", organizationType)
         
         if (email != null) {
             const secret = await registerUser(email, organization, organizationType)
@@ -277,11 +271,9 @@ app.post('/register/', jsonParser, async function(req, res) {
 
 app.post('/login/', jsonParser, async function(req, res) {
     try{
-        console.log("REQ", req.body)
+        
         const email = req.body.email;
         const password = req.body.password;
-        console.log("EMAIL ", email)
-        console.log("password ", password)
         if (email != null) {
             const result = await loginUser(email)
             res.send(result)
@@ -302,7 +294,7 @@ app.get('*', function(req, res) {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Listening on port ${port}`)
 })
 
 Object.defineProperty(String.prototype, 'capitalize', {

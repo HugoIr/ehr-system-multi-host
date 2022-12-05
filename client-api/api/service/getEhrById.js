@@ -17,7 +17,7 @@ const getEhrById = async (id, user) => {
         // Create a new file system based wallet for managing identities.
         const walletPath = path.join(process.cwd(), 'wallet');
         const wallet = await Wallets.newFileSystemWallet(walletPath);
-        console.log(`Wallet path: ${walletPath}`);
+        
 
         // Check to see if we've already enrolled the user.
         const identity = await wallet.get(user);
@@ -39,44 +39,8 @@ const getEhrById = async (id, user) => {
 
         // Evaluate the specified transaction.
         const result = await contract.evaluateTransaction('queryEhr', id);
-        console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
-        // Disconnect from the gateway.
-
-        // console.log("RESULT ", typeof result)
-        // console.log("RESULT ", JSON.parse(result)['insurance'])
-
-
-        // const caURL = ccp.certificateAuthorities[`ca.hospital`].url;
-        // const ca = new FabricCAServices(caURL);
-        // const adminIdentity = await wallet.get('admin');
-        // const provider = wallet.getProviderRegistry().getProvider(adminIdentity.type);
-        // const adminUser = await provider.getUserContext(adminIdentity, 'admin');
-        // let affiliationService = ca.newAffiliationService();
-        // let registeredAffiliations = await affiliationService.getAll(adminUser);
-        // // let adminUserObj = await client.setUserContext({
-        // //     username: "admin",
-        // //     password: "adminpw"
-        // //   });
-        
-        // console.log("AffiliationService.getAll", registeredAffiliations.result)
-        // // console.log("AffiliationService.getAll aff", registeredAffiliations.result.affiliations[0].affiliations)
-        // // console.log("AffiliationService.getAll aff", registeredAffiliations.result.affiliations[1].affiliations)
-        // // console.log("AffiliationService.getAll aff", registeredAffiliations.result.affiliations[2].affiliations)
-
-        // console.log("adminUser.getAffiliation()" , adminUser.getMspid())
-        // console.log("registeredd  ", !registeredAffiliations.result.affiliations.map(x => x.name == adminUser.getMspid()))
-
-        // // if (!registeredAffiliations.result.affiliations.some(x => x.name == 'insurance')) {
-        // //     let affiliation = "org2" + '.department3';
-        // //     console.log("AFFILIATION ", affiliation)
-        // //     await affiliationService.create({
-        // //       name: affiliation,
-        // //       force: true
-        // //     }, adminUser);
-        // // }
-        // console.log("after AffiliationService.getAll", registeredAffiliations.result)
-        // console.log("after AffiliationService.getAll aff", registeredAffiliations.result.affiliations[0].affiliations)
-
+        console.log(`Transaction has been evaluated`);
+       
         await gateway.disconnect();
         
         return getEhrParser(result);
