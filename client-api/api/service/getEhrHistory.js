@@ -28,7 +28,7 @@ const getEhrHistory = async (id, user) => {
         console.log(`identity: ${ccp}`);
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(ccp, { wallet, identity: identity, discovery: { enabled: true, asLocalhost: true } });
+        await gateway.connect(ccp, { wallet, identity: identity, discovery: { enabled: true, asLocalhost: false } });
 
         // Get the network (channel) our contract is deployed to.
         const network = await gateway.getNetwork('hospital-channel');
