@@ -35,7 +35,7 @@
             }
         },
         "peer1.${ORG}": {
-            "url": "grpcs://34.101.204.172:${P1PORT}",
+            "url": "grpcs://34.128.89.87:${P1PORT}",
             "tlsCACerts": {
                 "pem": "${PEERPEM}"
             },
