@@ -35,3 +35,8 @@ export CORE_PEER_MSPCONFIGPATH=${PWD}/consortium/crypto-config/ordererOrganizati
     openssl x509 -in consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls/server.crt -text -noout
     outputnya X509v3 Subject Alternative Name: 
                 DNS:peer1.hospital, DNS:localhost
+
+
+    sudo docker exec cli peer chaincode instantiate -o 34.101.204.172:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C hospital-channel -n fab-healthcare -v 1 -c '{"Args":[]}' -P "OR ('HospitalMSP.peer','InsuranceMSP.peer')"
+
+    sudo docker exec cli peer chaincode query -n fab-healthcare -C hospital-channel -c '{"Args":[]}'

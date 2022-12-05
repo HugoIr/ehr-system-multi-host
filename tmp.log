@@ -1,0 +1,51 @@
+go_irwanto91@host1-ehr-system:~/ehr-system-multi-host$ sudo ./network-setup-host1.sh deployCCAll
+executing with the following
+- CHANNEL_NAME: hospital-channel
+- CC_NAME: fab-healthcare
+- CC_SRC_PATH: /opt/gopath/src/github.com/chaincode/ehr/javascript/
+- CC_SRC_LANGUAGE: javascript
+- CC_VERSION: 1.0
+- CC_SEQUENCE: 1
+- CC_END_POLICY: NA
+- CC_COLL_CONFIG: NA
+- CC_INIT_FCN: initLedger
+- DELAY: 3
+- MAX_RETRY: 5
+- VERBOSE: false
+Using organization 1
+Using organization 2
+Using organization 1
++ peer lifecycle chaincode commit -o 34.101.204.172:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID hospital-channel --signature-policy 'OR('\''HospitalMSP.member'\'', '\''InsuranceMSP.member'\'')' --name fab-healthcare --peerAddresses 34.101.204.172:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls/ca.crt --peerAddresses 34.101.138.254:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/peerOrganizations/insurance/peers/peer0.insurance/tls/ca.crt --peerAddresses 34.128.89.87:8051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/peerOrganizations/hospital/peers/peer1.hospital/tls/ca.crt --version 1.0 --sequence 1 --init-required
++ res=0
+2022-12-04 18:01:30.824 UTC [chaincodeCmd] ClientWait -> INFO 001 txid [02fccace7edf0a2276480b60b48bd50a6b4ce950c245fa3fe9a7ca1074656783] committed with status (VALID) at 34.128.89.87:8051
+2022-12-04 18:01:30.840 UTC [chaincodeCmd] ClientWait -> INFO 002 txid [02fccace7edf0a2276480b60b48bd50a6b4ce950c245fa3fe9a7ca1074656783] committed with status (VALID) at 34.101.138.254:9051
+2022-12-04 18:01:30.880 UTC [chaincodeCmd] ClientWait -> INFO 003 txid [02fccace7edf0a2276480b60b48bd50a6b4ce950c245fa3fe9a7ca1074656783] committed with status (VALID) at 34.101.204.172:7051
+Chaincode definition committed on channel 'hospital-channel'
+Using organization 1
+Querying chaincode definition on peer0.org1 on channel 'hospital-channel'...
+Attempting to Query committed status on peer0.org1, Retry after 3 seconds.
++ peer lifecycle chaincode querycommitted --channelID hospital-channel --name fab-healthcare
++ res=0
+Committed chaincode definition for chaincode 'fab-healthcare' on channel 'hospital-channel':
+Version: 1.0, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc, Approvals: [HospitalMSP: true, InsuranceMSP: true]
+Query chaincode definition successful on peer0.org1 on channel 'hospital-channel'
+Using organization 2
+Querying chaincode definition on peer0.org2 on channel 'hospital-channel'...
++ peer lifecycle chaincode querycommitted --channelID hospital-channel --name fab-healthcare
+Attempting to Query committed status on peer0.org2, Retry after 3 seconds.
++ res=0
+Committed chaincode definition for chaincode 'fab-healthcare' on channel 'hospital-channel':
+Version: 1.0, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc, Approvals: [HospitalMSP: true, InsuranceMSP: true]
+Query chaincode definition successful on peer0.org2 on channel 'hospital-channel'
+Using organization 1
+Using organization 2
++ fcn_call='{"function":"initLedger","Args":[]}'
++ infoln 'invoke fcn call:{"function":"initLedger","Args":[]}'
++ println 'invoke fcn call:{"function":"initLedger","Args":[]}'
++ echo -e 'invoke fcn call:{"function":"initLedger","Args":[]}'
+invoke fcn call:{"function":"initLedger","Args":[]}
++ peer chaincode invoke -o 34.101.204.172:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C hospital-channel -n fab-healthcare --peerAddresses 34.101.204.172:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/peerOrganizations/hospital/peers/peer0.hospital/tls/ca.crt --peerAddresses 34.101.138.254:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/peerOrganizations/insurance/peers/peer0.insurance/tls/ca.crt --isInit -c '{"function":"initLedger","Args":[]}'
++ res=1
+Error: endorsement failure during invoke. response: status:500 message:"make sure the chaincode fab-healthcare has been successfully defined on channel hospital-channel and try again: chaincode definition for 'fab-healthcare' exists, but chaincode is not installed" 
+Invoke execution on peer0.org1 peer0.org2 failed 
+Deploying chaincode failed
