@@ -26,8 +26,8 @@ BLOCKFILE="./channel-artifacts/${CHANNEL_NAME}.block"
 # infoln "Setting anchor peer0.hospital for org1..."
 # setAnchorPeer 1
 
-infoln "Joining org2 peer to the channel..."
-joinChannel 2
+# infoln "Joining org2 peer to the channel..."
+# joinChannel 2
 infoln "Setting anchor peer for org2..."
 setAnchorPeer 2
 
