@@ -60,7 +60,7 @@ CC_SRC_LANGUAGE="javascript"
 # Chaincode version
 CC_VERSION="1.0"
 # Chaincode definition sequence
-CC_SEQUENCE=1
+CC_SEQUENCE=2
 # default image tag
 IMAGETAG="latest"
 # default ca image tag
