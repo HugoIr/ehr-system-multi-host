@@ -86,4 +86,3 @@ setAnchorPeer() {
   ./scripts/setAnchorPeer.sh $ORG $CHANNEL_NAME 
 }
 
-FABRIC_CFG_PATH=${PWD}/configtx
