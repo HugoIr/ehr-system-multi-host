@@ -6,13 +6,6 @@
 . scripts/createChannel.sh
 
 
-# FABRIC_CFG_PATH=${PWD}/configtx
-
-## Create channeltx
-# infoln "Generating channel create transaction '${CHANNEL_NAME}.tx'"
-# createChannelTx
-
-# FABRIC_CFG_PATH=$PWD/config
 BLOCKFILE="./channel-artifacts/${CHANNEL_NAME}.block"
 
 # # Create channel
@@ -26,13 +19,13 @@ BLOCKFILE="./channel-artifacts/${CHANNEL_NAME}.block"
 # infoln "Setting anchor peer0.hospital for org1..."
 # setAnchorPeer 1
 
-infoln "Joining org2 peer to the channel..."
-joinChannel 2
-infoln "Setting anchor peer for org2..."
-setAnchorPeer 2
+# infoln "Joining org2 peer to the channel..."
+# joinChannel 2
+# infoln "Setting anchor peer for org2..."
+# setAnchorPeer 2
 
-infoln "Joining org1 peer1.hospital1 to the channel..."
-joinChannel 3
+# infoln "Joining org1 peer1.hospital1 to the channel..."
+# joinChannel 3
 infoln "Setting anchor peer1.hospital for org2..."
 setAnchorPeer 3
 
