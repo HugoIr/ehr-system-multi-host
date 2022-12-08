@@ -1,8 +1,6 @@
 const { Gateway, Wallets } = require('fabric-network');
 const path = require('path');
 const fs = require('fs');
-const { AffiliationService } = require('fabric-ca-client');
-const FabricCAServices = require('fabric-ca-client');
 const { getHistoryEhrParser } = require('../utils/converter');
 
 
@@ -17,7 +15,7 @@ const getEhrHistory = async (id, user) => {
         // Create a new file system based wallet for managing identities.
         const walletPath = path.join(process.cwd(), 'wallet');
         const wallet = await Wallets.newFileSystemWallet(walletPath);
-        
+        console.log(`Wallet path: ${walletPath}`);
 
         // Check to see if we've already enrolled the user.
         const identity = await wallet.get(user);
@@ -38,10 +36,9 @@ const getEhrHistory = async (id, user) => {
         const contract = network.getContract('fab-healthcare');
 
         // Evaluate the specified transaction.
-        const ehrHistory = await contract.evaluateTransaction('getEhrHistory', id, 'insuranceA');
+        const ehrHistory = await contract.evaluateTransaction('queryEhrHistory', id);
 
         await gateway.disconnect();
-
         
         return getHistoryEhrParser(ehrHistory);
         

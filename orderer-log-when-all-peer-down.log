@@ -1,0 +1,168 @@
+2022-12-07 06:04:43.968 UTC [core.comm] ServerHandshake -> ERRO 0e4 Server TLS handshake failed in 202.929583ms with error remote error: tls: bad certificate server=Orderer remoteaddress=152.118.231.37:63233
+2022-12-07 06:04:45.368 UTC [core.comm] ServerHandshake -> ERRO 0e5 Server TLS handshake failed in 205.080863ms with error remote error: tls: bad certificate server=Orderer remoteaddress=152.118.231.37:63234
+2022-12-07 06:05:24.138 UTC [core.comm] ServerHandshake -> ERRO 0e6 Server TLS handshake failed in 324.309499ms with error EOF server=Orderer remoteaddress=152.118.231.37:63237
+2022-12-07 06:05:24.330 UTC [core.comm] ServerHandshake -> ERRO 0e7 Server TLS handshake failed in 155.289094ms with error EOF server=Orderer remoteaddress=152.118.231.37:63238
+2022-12-08 02:46:24.720 UTC [orderer.common.server] func1 -> INFO 0e8 Received signal: 15 (terminated)
+2022-12-08 02:55:22.627 UTC [localconfig] completeInitialization -> WARN 001 General.GenesisFile should be replaced by General.BootstrapFile
+2022-12-08 02:55:22.631 UTC [localconfig] completeInitialization -> INFO 002 Kafka.Version unset, setting to 0.10.2.0
+2022-12-08 02:55:22.636 UTC [orderer.common.server] prettyPrintStruct -> INFO 003 Orderer config values:
+        General.ListenAddress = "0.0.0.0"
+        General.ListenPort = 7050
+        General.TLS.Enabled = true
+        General.TLS.PrivateKey = "/var/hyperledger/orderer/tls/server.key"
+        General.TLS.Certificate = "/var/hyperledger/orderer/tls/server.crt"
+        General.TLS.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+        General.TLS.ClientAuthRequired = false
+        General.TLS.ClientRootCAs = []
+        General.TLS.TLSHandshakeTimeShift = 0s
+        General.Cluster.ListenAddress = ""
+        General.Cluster.ListenPort = 0
+        General.Cluster.ServerCertificate = ""
+        General.Cluster.ServerPrivateKey = ""
+        General.Cluster.ClientCertificate = "/var/hyperledger/orderer/tls/server.crt"
+        General.Cluster.ClientPrivateKey = "/var/hyperledger/orderer/tls/server.key"
+        General.Cluster.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+        General.Cluster.DialTimeout = 5s
+        General.Cluster.RPCTimeout = 7s
+        General.Cluster.ReplicationBufferSize = 20971520
+        General.Cluster.ReplicationPullTimeout = 5s
+        General.Cluster.ReplicationRetryTimeout = 5s
+        General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+        General.Cluster.ReplicationMaxRetries = 12
+        General.Cluster.SendBufferSize = 10
+        General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+        General.Cluster.TLSHandshakeTimeShift = 0s
+        General.Keepalive.ServerMinInterval = 1m0s
+        General.Keepalive.ServerInterval = 2h0m0s
+        General.Keepalive.ServerTimeout = 20s
+        General.ConnectionTimeout = 0s
+        General.GenesisMethod = "file"
+        General.GenesisFile = "/var/hyperledger/orderer/orderer.genesis.block"
+        General.BootstrapMethod = "file"
+        General.BootstrapFile = "/var/hyperledger/orderer/orderer.genesis.block"
+        General.Profile.Enabled = false
+        General.Profile.Address = "0.0.0.0:6060"
+        General.LocalMSPDir = "/var/hyperledger/orderer/msp"
+        General.LocalMSPID = "OrdererMSP"
+        General.BCCSP.ProviderName = "SW"
+        General.BCCSP.SwOpts.SecLevel = 256
+        General.BCCSP.SwOpts.HashFamily = "SHA2"
+        General.BCCSP.SwOpts.FileKeystore.KeyStorePath = ""
+        General.BCCSP.SwOpts.DummyKeystore =
+        General.BCCSP.SwOpts.InmemKeystore =
+        General.Authentication.TimeWindow = 15m0s
+        General.Authentication.NoExpirationChecks = false
+        General.MaxRecvMsgSize = 104857600
+        General.MaxSendMsgSize = 104857600
+        FileLedger.Location = "/var/hyperledger/production/orderer"
+        FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+        Kafka.Retry.ShortInterval = 5s
+        Kafka.Retry.ShortTotal = 10m0s
+        Kafka.Retry.LongInterval = 5m0s
+        Kafka.Retry.LongTotal = 12h0m0s
+        Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+        Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+        Kafka.Retry.Metadata.RetryMax = 3
+        Kafka.Retry.Metadata.RetryBackoff = 250ms
+        Kafka.Retry.Producer.RetryMax = 3
+        Kafka.Retry.Producer.RetryBackoff = 100ms
+        Kafka.Retry.Consumer.RetryBackoff = 2s
+        Kafka.Verbose = true
+        Kafka.Version = 0.10.2.0
+        Kafka.TLS.Enabled = false
+        Kafka.TLS.PrivateKey = ""
+        Kafka.TLS.Certificate = ""
+        Kafka.TLS.RootCAs = []
+        Kafka.TLS.ClientAuthRequired = false
+        Kafka.TLS.ClientRootCAs = []
+        Kafka.TLS.TLSHandshakeTimeShift = 0s
+        Kafka.SASLPlain.Enabled = false
+        Kafka.SASLPlain.User = ""
+        Kafka.SASLPlain.Password = ""
+        Kafka.Topic.ReplicationFactor = 1
+        Debug.BroadcastTraceDir = ""
+        Debug.DeliverTraceDir = ""
+        Consensus = map[SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot WALDir:/var/hyperledger/production/orderer/etcdraft/wal]
+        Operations.ListenAddress = "0.0.0.0:17050"
+        Operations.TLS.Enabled = false
+        Operations.TLS.PrivateKey = ""
+        Operations.TLS.Certificate = ""
+        Operations.TLS.RootCAs = []
+        Operations.TLS.ClientAuthRequired = false
+        Operations.TLS.ClientRootCAs = []
+        Operations.TLS.TLSHandshakeTimeShift = 0s
+        Metrics.Provider = "disabled"
+        Metrics.Statsd.Network = "udp"
+        Metrics.Statsd.Address = "127.0.0.1:8125"
+        Metrics.Statsd.WriteInterval = 30s
+        Metrics.Statsd.Prefix = ""
+        ChannelParticipation.Enabled = false
+        ChannelParticipation.RemoveStorage = false
+2022-12-08 02:55:22.660 UTC [orderer.common.server] initializeServerConfig -> INFO 004 Starting orderer with TLS enabled
+2022-12-08 02:55:22.782 UTC [orderer.common.server] Main -> INFO 005 Not bootstrapping the system channel because of existing channels
+2022-12-08 02:55:22.822 UTC [orderer.common.server] selectClusterBootBlock -> INFO 006 Cluster boot block is bootstrap (genesis) block; Blocks Header.Number system-channel=0, bootstrap=0
+2022-12-08 02:55:22.824 UTC [orderer.common.server] Main -> INFO 007 Starting with system channel: system-channel, consensus type: etcdraft
+2022-12-08 02:55:22.825 UTC [orderer.common.server] Main -> INFO 008 Setting up cluster
+2022-12-08 02:55:22.825 UTC [orderer.common.server] reuseListener -> INFO 009 Cluster listener is not configured, defaulting to use the general listener on port 7050
+2022-12-08 02:55:22.826 UTC [orderer.common.server] reuseListener -> INFO 00a Cluster listener is not configured, defaulting to use the general listener on port 7050
+2022-12-08 02:55:22.832 UTC [orderer.common.cluster] loadVerifier -> INFO 00b Loaded verifier for channel hospital-channel from config block at index 194
+2022-12-08 02:55:22.836 UTC [orderer.common.cluster] loadVerifier -> INFO 00c Loaded verifier for channel system-channel from config block at index 1
+2022-12-08 02:55:22.837 UTC [certmonitor] trackCertExpiration -> INFO 00d The enrollment certificate will expire on 2023-12-05 08:55:00 +0000 UTC
+2022-12-08 02:55:22.837 UTC [certmonitor] trackCertExpiration -> INFO 00e The server TLS certificate will expire on 2023-12-05 08:55:00 +0000 UTC
+2022-12-08 02:55:22.837 UTC [certmonitor] trackCertExpiration -> INFO 00f The client TLS certificate will expire on 2023-12-05 08:55:00 +0000 UTC
+2022-12-08 02:55:22.854 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 010 EvictionSuspicion not set, defaulting to 10m0s
+2022-12-08 02:55:22.859 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 011 Found WAL data at path '/var/hyperledger/production/orderer/etcdraft/wal/hospital-channel', replaying it channel=hospital-channel node=1
+2022-12-08 02:55:22.903 UTC [orderer.consensus.etcdraft] Start -> INFO 012 Starting Raft node channel=hospital-channel node=1
+2022-12-08 02:55:22.903 UTC [orderer.common.cluster] Configure -> INFO 013 Entering, channel: hospital-channel, nodes: []
+2022-12-08 02:55:22.904 UTC [orderer.common.cluster] Configure -> INFO 014 Exiting
+2022-12-08 02:55:22.904 UTC [orderer.consensus.etcdraft] start -> INFO 015 Restarting raft node channel=hospital-channel node=1
+2022-12-08 02:55:22.904 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 016 1 became follower at term 4 channel=hospital-channel node=1
+2022-12-08 02:55:22.904 UTC [orderer.consensus.etcdraft] newRaft -> INFO 017 newRaft 1 [peers: [], term: 4, commit: 198, applied: 0, lastindex: 198, lastterm: 4] channel=hospital-channel node=1
+2022-12-08 02:55:22.911 UTC [orderer.consensus.etcdraft] apply -> INFO 018 Applied config change to add node 1, current nodes in channel: [1] channel=hospital-channel node=1
+2022-12-08 02:55:22.912 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 019 EvictionSuspicion not set, defaulting to 10m0s
+2022-12-08 02:55:22.914 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 01a Found WAL data at path '/var/hyperledger/production/orderer/etcdraft/wal/system-channel', replaying it channel=system-channel node=1
+2022-12-08 02:55:22.922 UTC [orderer.commmon.multichannel] Initialize -> INFO 01b Starting system channel 'system-channel' with genesis block hash dd3b58b2bf84b5848cbdb761007d4db4e80e4ac216fd2204c50ec5ba6569f015 and orderer type etcdraft
+2022-12-08 02:55:22.923 UTC [orderer.consensus.etcdraft] Start -> INFO 01c Starting Raft node channel=system-channel node=1
+2022-12-08 02:55:22.923 UTC [orderer.common.cluster] Configure -> INFO 01d Entering, channel: system-channel, nodes: []
+2022-12-08 02:55:22.923 UTC [orderer.common.cluster] Configure -> INFO 01e Exiting
+2022-12-08 02:55:22.923 UTC [orderer.consensus.etcdraft] start -> INFO 01f Restarting raft node channel=system-channel node=1
+2022-12-08 02:55:22.923 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 020 1 became follower at term 4 channel=system-channel node=1
+2022-12-08 02:55:22.923 UTC [orderer.consensus.etcdraft] newRaft -> INFO 021 newRaft 1 [peers: [], term: 4, commit: 5, applied: 0, lastindex: 5, lastterm: 4] channel=system-channel node=1
+2022-12-08 02:55:22.927 UTC [orderer.common.server] Main -> INFO 022 Starting orderer:
+ Version: 2.2.9
+ Commit SHA: 5305a89
+ Go version: go1.18.7
+ OS/Arch: linux/amd64
+2022-12-08 02:55:22.928 UTC [orderer.common.server] Main -> INFO 023 Beginning to serve requests
+2022-12-08 02:55:22.929 UTC [orderer.consensus.etcdraft] apply -> INFO 024 Applied config change to add node 1, current nodes in channel: [1] channel=system-channel node=1
+2022-12-08 02:55:30.428 UTC [orderer.consensus.etcdraft] Step -> INFO 025 1 is starting a new election at term 4 channel=system-channel node=1
+2022-12-08 02:55:30.428 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 026 1 became pre-candidate at term 4 channel=system-channel node=1
+2022-12-08 02:55:30.428 UTC [orderer.consensus.etcdraft] poll -> INFO 027 1 received MsgPreVoteResp from 1 at term 4 channel=system-channel node=1
+2022-12-08 02:55:30.428 UTC [orderer.consensus.etcdraft] becomeCandidate -> INFO 028 1 became candidate at term 5 channel=system-channel node=1
+2022-12-08 02:55:30.428 UTC [orderer.consensus.etcdraft] poll -> INFO 029 1 received MsgVoteResp from 1 at term 5 channel=system-channel node=1
+2022-12-08 02:55:30.428 UTC [orderer.consensus.etcdraft] becomeLeader -> INFO 02a 1 became leader at term 5 channel=system-channel node=1
+2022-12-08 02:55:30.428 UTC [orderer.consensus.etcdraft] run -> INFO 02b raft.node: 1 elected leader 1 at term 5 channel=system-channel node=1
+2022-12-08 02:55:30.429 UTC [orderer.consensus.etcdraft] run -> INFO 02c Raft leader changed: 0 -> 1 channel=system-channel node=1
+2022-12-08 02:55:30.429 UTC [orderer.consensus.etcdraft] run -> INFO 02d Start accepting requests as Raft leader at block [1] channel=system-channel node=1
+2022-12-08 02:55:31.405 UTC [orderer.consensus.etcdraft] Step -> INFO 02e 1 is starting a new election at term 4 channel=hospital-channel node=1
+2022-12-08 02:55:31.405 UTC [orderer.consensus.etcdraft] becomePreCandidate -> INFO 02f 1 became pre-candidate at term 4 channel=hospital-channel node=1
+2022-12-08 02:55:31.405 UTC [orderer.consensus.etcdraft] poll -> INFO 030 1 received MsgPreVoteResp from 1 at term 4 channel=hospital-channel node=1
+2022-12-08 02:55:31.405 UTC [orderer.consensus.etcdraft] becomeCandidate -> INFO 031 1 became candidate at term 5 channel=hospital-channel node=1
+2022-12-08 02:55:31.405 UTC [orderer.consensus.etcdraft] poll -> INFO 032 1 received MsgVoteResp from 1 at term 5 channel=hospital-channel node=1
+2022-12-08 02:55:31.405 UTC [orderer.consensus.etcdraft] becomeLeader -> INFO 033 1 became leader at term 5 channel=hospital-channel node=1
+2022-12-08 02:55:31.405 UTC [orderer.consensus.etcdraft] run -> INFO 034 raft.node: 1 elected leader 1 at term 5 channel=hospital-channel node=1
+2022-12-08 02:55:31.406 UTC [orderer.consensus.etcdraft] run -> INFO 035 Raft leader changed: 0 -> 1 channel=hospital-channel node=1
+2022-12-08 02:55:31.406 UTC [orderer.consensus.etcdraft] run -> INFO 036 Start accepting requests as Raft leader at block [194] channel=hospital-channel node=1
+2022-12-08 02:59:17.653 UTC [comm.grpc.server] 1 -> INFO 037 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=34.128.121.163:45374 grpc.peer_subject="CN=fabric-common" grpc.code=OK grpc.call_duration=2.119961ms
+2022-12-08 02:59:19.653 UTC [orderer.consensus.etcdraft] propose -> INFO 038 Created block [195], there are 0 blocks in flight channel=hospital-channel node=1
+2022-12-08 02:59:19.657 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 039 Writing block [195] (Raft index: 200) to ledger channel=hospital-channel node=1
+2022-12-08 02:59:27.598 UTC [comm.grpc.server] 1 -> INFO 03a streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=34.128.121.163:59792 grpc.peer_subject="CN=fabric-common" grpc.code=OK grpc.call_duration=1.003838ms
+2022-12-08 02:59:29.598 UTC [orderer.consensus.etcdraft] propose -> INFO 03b Created block [196], there are 0 blocks in flight channel=hospital-channel node=1
+2022-12-08 02:59:29.602 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 03c Writing block [196] (Raft index: 201) to ledger channel=hospital-channel node=1
+2022-12-08 02:59:38.000 UTC [comm.grpc.server] 1 -> INFO 03d streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=34.128.121.163:54556 grpc.peer_subject="CN=fabric-common" grpc.code=OK grpc.call_duration=616.814µs
+2022-12-08 02:59:40.000 UTC [orderer.consensus.etcdraft] propose -> INFO 03e Created block [197], there are 0 blocks in flight channel=hospital-channel node=1
+2022-12-08 02:59:40.003 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 03f Writing block [197] (Raft index: 202) to ledger channel=hospital-channel node=1
+2022-12-08 03:00:04.225 UTC [comm.grpc.server] 1 -> INFO 040 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=34.128.121.163:42638 grpc.peer_subject="CN=fabric-common" grpc.code=OK grpc.call_duration=774.892µs
+2022-12-08 03:00:06.225 UTC [orderer.consensus.etcdraft] propose -> INFO 041 Created block [198], there are 0 blocks in flight channel=hospital-channel node=1
+2022-12-08 03:00:06.229 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 042 Writing block [198] (Raft index: 203) to ledger channel=hospital-channel node=1

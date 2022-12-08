@@ -38,7 +38,7 @@ const getEhrById = async (id, user) => {
         const contract = network.getContract('fab-healthcare');
 
         // Evaluate the specified transaction.
-        const result = await contract.evaluateTransaction('queryEhr', id);
+        const result = await contract.evaluateTransaction('queryEhrById', id);
         console.log(`Transaction has been evaluated`);
        
         await gateway.disconnect();

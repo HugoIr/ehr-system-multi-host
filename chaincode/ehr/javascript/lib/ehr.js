@@ -24,7 +24,7 @@ class Ehr extends Contract {
         console.info('============= END : Initialize Ledger ===========');
     }
 
-    async queryEhr(ctx, ehrId) {
+    async queryEhrById(ctx, ehrId) {
         const ehrAsBytes = await ctx.stub.getState(ehrId); // get the ehr from chaincode state
         if (!ehrAsBytes || ehrAsBytes.length === 0) {
             throw new Error(`${ehrId} does not exist`);
@@ -38,10 +38,9 @@ class Ehr extends Contract {
             return ehrResult;
         } else if (mspId == "InsuranceMSP") {
 
-            console.log('ehrasbytes ', `insurance.${ehrAsBytes}`)
             
-            console.log("JSON.parse(ehrResult)['insurance'] ", JSON.parse(ehrResult)['insurance'])
-            if (`insurance.${JSON.parse(ehrResult)['insurance']}` == ctx.clientIdentity.attrs['hf.Affiliation']) {
+            console.log("JSON.parse(ehrResult)['insuranceName'] ", JSON.parse(ehrResult)['insuranceName'])
+            if (`insurance.${JSON.parse(ehrResult)['insuranceName']}` == ctx.clientIdentity.attrs['hf.Affiliation']) {
                 return ehrResult;
             } else {
                 throw new Error(`Not permitted to access ehr with id: ${ehrId}`);
@@ -138,25 +137,6 @@ class Ehr extends Contract {
         }
         const ehr = JSON.parse(ehrAsBytes.toString());
 
-    // const ehr = {
-    //     ehrId,
-    //     name,
-    //     dateOfBirth,
-    //     address,
-    //     phoneNumber,
-    //     gender, 
-    //     nationality,
-    //     bloodType,
-    //     height,
-    //     weight,
-    //     pulseRate,
-    //     bloodPressure,
-    //     respiratoryRate,
-    //     medicalHistory,
-    //     diagnose,
-    //     insuranceName,
-    // };
-
         if (name != undefined) {
             ehr.name = name;
         }    
@@ -240,11 +220,7 @@ class Ehr extends Contract {
     }
 
     async queryBelongingEhrs(ctx) {
-        // const startKey = '';
-        // const endKey = '';
         const allResults = [];
-
-
 
         console.log("ctx.clientIdentity ", ctx.clientIdentity)
         const mspId = ctx.clientIdentity.getMSPID()
@@ -261,7 +237,7 @@ class Ehr extends Contract {
             } else {
                 query = {
                     "selector": {
-                        "insurance": ctx.clientIdentity.attrs['hf.Affiliation'].split('.')[1]
+                        "insuranceName": ctx.clientIdentity.attrs['hf.Affiliation'].split('.')[1]
                     }
                 }
                 console.log("inside msp insurance ", ctx.clientIdentity.attrs['hf.Affiliation'].split('.')[1])
@@ -285,7 +261,7 @@ class Ehr extends Contract {
         }
     }
 
-    async getEhrHistory(ctx, ehrId, insurance) {
+    async queryEhrHistory(ctx, ehrId) {
 
         const mspId = ctx.clientIdentity.getMSPID()
         const historyIterator = await ctx.stub.getHistoryForKey(ehrId)
@@ -310,16 +286,8 @@ class Ehr extends Contract {
         }
         result = JSON.stringify(result);
         
-        if (mspId == "HospitalMSP") {
+        if (mspId == "HospitalMSP" || mspId == "InsuranceMSP") {
             return result;
-
-        } else if (mspId == "InsuranceMSP") {
-            if (`insurance.${insurance}` == ctx.clientIdentity.attrs['hf.Affiliation']) {
-                return result;
-
-            } else {
-                throw new Error(`Not permitted to access ehr with id: ${ehrId}`);
-            }
         } else {
             throw new Error(`Unknown MSPID: ${mspId}`);
         }
