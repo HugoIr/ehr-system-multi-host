@@ -148,10 +148,12 @@ queryInstalled() {
 
 # approveForMyOrg VERSION PEER ORG
 approveForMyOrg() {
+  parsePeerConnectionParameters $@
+
   ORG=$1
   setGlobals $ORG
   set -x
-  peer lifecycle chaincode approveformyorg -o 34.101.204.172:7050 --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')" --ordererTLSHostnameOverride orderer.example.com  --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --package-id ${PACKAGE_ID} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
+  peer lifecycle chaincode approveformyorg -o 34.101.204.172:7050 --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')" --ordererTLSHostnameOverride orderer.example.com  --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --package-id ${PACKAGE_ID} $PEER_CONN_PARMS --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
   res=$?
   { set +x; } 2>/dev/null
   cat log.txt
