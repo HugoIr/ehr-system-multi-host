@@ -277,10 +277,7 @@ function createChannelAll() {
     infoln "Bringing up network"
     networkUp
   fi
-  # createChannelTx
-  FABRIC_CFG_PATH=${PWD}/configtx
-  docker exec cli scripts/createChannelTx.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
-  
+
   FABRIC_CFG_PATH=$PWD/config/
   docker exec cli scripts/createChannel-all.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
 }
@@ -463,6 +460,8 @@ elif [ "${MODE}" == "createChannel" ]; then
   createChannel
 elif [ "${MODE}" == "createChannelAll" ]; then
   createChannelAll
+elif [ "${MODE}" == "createChannelTx" ]; then
+  createChannelTx 
 elif [ "${MODE}" == "deployCC" ]; then
   deployCC
 elif [ "${MODE}" == "deployCCAll" ]; then
