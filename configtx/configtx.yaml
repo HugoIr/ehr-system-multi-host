@@ -58,9 +58,9 @@ Organizations:
                 Rule: "OR('HospitalMSP.peer')"
         
         AnchorPeers:
-            - Host: "34.101.204.172"
+            - Host: 34.101.204.172
               Port: 7051           
-            - Host: "34.128.89.87"
+            - Host: 34.128.89.87
               Port: 8051       
 
     - &Insurance
@@ -85,7 +85,7 @@ Organizations:
                 Type: Signature
                 Rule: "OR('InsuranceMSP.peer')"
         AnchorPeers:
-            - Host: "34.101.138.254"
+            - Host: 34.101.138.254
               Port: 9051            
 ################################################################################
 #
