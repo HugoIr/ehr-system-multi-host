@@ -11,11 +11,11 @@ organizations:
   insurance:
     mspid: insuranceMSP
     peers:
-    - peer0.insurance.example.com
+    - peer0.insurance
     certificateAuthorities:
-    - ca.insurance.example.com
+    - ca.insurance
 peers:
-  peer0.insurance.example.com:
+  peer0.insurance:
     url: grpcs://34.101.138.254:9051
     tlsCACerts:
       pem: |
@@ -35,10 +35,10 @@ peers:
           -----END CERTIFICATE-----
           
     grpcOptions:
-      ssl-target-name-override: peer0.insurance.example.com
-      hostnameOverride: peer0.insurance.example.com
+      ssl-target-name-override: peer0.insurance
+      hostnameOverride: peer0.insurance
 certificateAuthorities:
-  ca.insurance.example.com:
+  ca.insurance:
     url: https://34.101.138.254:8054
     caName: ca.insurance
     tlsCACerts:

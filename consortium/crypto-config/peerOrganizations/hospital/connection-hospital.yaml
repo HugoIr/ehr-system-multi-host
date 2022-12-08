@@ -11,12 +11,12 @@ organizations:
   hospital:
     mspid: hospitalMSP
     peers:
-    - peer0.hospital.example.com
-    - peer1.hospital.example.com
+    - peer0.hospital
+    - peer1.hospital
     certificateAuthorities:
-    - ca.hospital.example.com
+    - ca.hospital
 peers:
-  peer0.hospital.example.com:
+  peer0.hospital:
     url: grpcs://34.101.204.172:7051
     tlsCACerts:
       pem: |
@@ -36,9 +36,9 @@ peers:
           -----END CERTIFICATE-----
           
     grpcOptions:
-      ssl-target-name-override: peer0.hospital.example.com
-      hostnameOverride: peer0.hospital.example.com
-  peer1.hospital.example.com:
+      ssl-target-name-override: peer0.hospital
+      hostnameOverride: peer0.hospital
+  peer1.hospital:
     url: grpcs://34.101.204.172:8051
     tlsCACerts:
       pem: |
@@ -58,10 +58,10 @@ peers:
           -----END CERTIFICATE-----
           
     grpcOptions:
-      ssl-target-name-override: peer1.hospital.example.com
-      hostnameOverride: peer1.hospital.example.com
+      ssl-target-name-override: peer1.hospital
+      hostnameOverride: peer1.hospital
 certificateAuthorities:
-  ca.hospital.example.com:
+  ca.hospital:
     url: https://34.101.204.172:7054
     caName: ca.hospital
     tlsCACerts:
