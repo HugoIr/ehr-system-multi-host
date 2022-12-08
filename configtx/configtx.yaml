@@ -140,10 +140,10 @@ Application: &ApplicationDefaults
             Rule: "MAJORITY Admins"
         LifecycleEndorsement:
             Type: ImplicitMeta
-            Rule: "ANY Endorsement"
+            Rule: "MAJORITY Endorsement"
         Endorsement:
-            Type: Signature
-            Rule: "OR(OutOf(2, 'HospitalMSP.peer', 'HospitalMSP.peer'), OutOf(2, 'HospitalMSP.peer', 'InsuranceMSP.peer'))"
+            Type: ImplicitMeta
+            Rule: "ANY Endorsement"
 
 
     Capabilities:
