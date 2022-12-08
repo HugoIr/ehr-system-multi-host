@@ -277,8 +277,10 @@ function createChannelAll() {
     infoln "Bringing up network"
     networkUp
   fi
-  createChannelTx
-
+  # createChannelTx
+  FABRIC_CFG_PATH=${PWD}/configtx
+  docker exec cli scripts/createChannelTx.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
+  
   FABRIC_CFG_PATH=$PWD/config/
   docker exec cli scripts/createChannel-all.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
 }
