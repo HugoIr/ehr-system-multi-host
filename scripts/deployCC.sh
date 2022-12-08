@@ -148,12 +148,10 @@ queryInstalled() {
 
 # approveForMyOrg VERSION PEER ORG
 approveForMyOrg() {
-  parsePeerConnectionParameters $@
-
   ORG=$1
   setGlobals $ORG
   set -x
-  peer lifecycle chaincode approveformyorg -o 34.101.204.172:7050 --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')" --ordererTLSHostnameOverride orderer.example.com  --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --package-id ${PACKAGE_ID} $PEER_CONN_PARMS --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
+  peer lifecycle chaincode approveformyorg -o 34.101.204.172:7050 --signature-policy "OR('HospitalMSP.member', 'InsuranceMSP.member')" --ordererTLSHostnameOverride orderer.example.com  --tls --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} --package-id ${PACKAGE_ID} --sequence ${CC_SEQUENCE} ${INIT_REQUIRED} ${CC_END_POLICY} ${CC_COLL_CONFIG} >&log.txt
   res=$?
   { set +x; } 2>/dev/null
   cat log.txt
@@ -284,37 +282,37 @@ chaincodeQuery() {
   fi
 }
 
-# # package the chaincode
-# packageChaincode
+# package the chaincode
+packageChaincode
 
-# ## Install chaincode on peer0.hospital and peer0.org2
-# infoln "Installing chaincode on peer0.hospital..."
-# installChaincode 1
+## Install chaincode on peer0.hospital and peer0.org2
+infoln "Installing chaincode on peer0.hospital..."
+installChaincode 1
 
-# infoln "Install chaincode on peer1.hospital..."
-# installChaincode 3
+infoln "Install chaincode on peer1.hospital..."
+installChaincode 3
 
-# infoln "Install chaincode on peer0.insurance..."
-# installChaincode 2
+infoln "Install chaincode on peer0.insurance..."
+installChaincode 2
 
-# # query whether the chaincode is installed
+# query whether the chaincode is installed
 queryInstalled 1
 
-# # approve the definition for hospital
-# approveForMyOrg 1
+# approve the definition for hospital
+approveForMyOrg 1
 
-# ## check whether the chaincode definition is ready to be committed
-# ## expect hospital to have approved and org2 not to
-# checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
-# checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
+## check whether the chaincode definition is ready to be committed
+## expect hospital to have approved and org2 not to
+checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
+checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
 
 ## now approve also for insurance
 approveForMyOrg 2
 
 ## check whether the chaincode definition is ready to be committed
 ## expect them both to have approved
-# checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
-# checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
+checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
+checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
 
 ## now that we know for sure both orgs have approved, commit the definition
 commitChaincodeDefinition 1 2 3
