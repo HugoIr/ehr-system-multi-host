@@ -299,7 +299,7 @@ chaincodeQuery() {
 queryInstalled 1
 
 # approve the definition for hospital
-approveForMyOrg 1
+# approveForMyOrg 1
 
 ## check whether the chaincode definition is ready to be committed
 ## expect hospital to have approved and org2 not to
@@ -307,7 +307,7 @@ approveForMyOrg 1
 # checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
 
 ## now approve also for insurance
-approveForMyOrg 2
+# approveForMyOrg 2
 
 ## check whether the chaincode definition is ready to be committed
 ## expect them both to have approved
