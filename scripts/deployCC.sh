@@ -303,8 +303,8 @@ approveForMyOrg 1
 
 ## check whether the chaincode definition is ready to be committed
 ## expect hospital to have approved and org2 not to
-checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
-checkCommitReadiness 2 "\"HospitalMSP\": false" "\"InsuranceMSP\": false"
+checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
+checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
 
 ## now approve also for insurance
 approveForMyOrg 2
