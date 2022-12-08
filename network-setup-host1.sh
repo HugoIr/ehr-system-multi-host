@@ -284,7 +284,7 @@ function createChannelAll() {
 
 function createChannelTx() {
   # Bring up the network if it is not already up.
-  FABRIC_CFG_PATH=${PWD}/configtx
+  
   if [ ! -d "consortium/crypto-config/peerOrganizations" ]; then
     infoln "Bringing up network"
     networkUp
