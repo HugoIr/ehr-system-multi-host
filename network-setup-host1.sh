@@ -290,7 +290,7 @@ function createChannelTx() {
     networkUp
   fi
 
-  docker exec cli scripts/createChannelTx.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
+  scripts/createChannelTx.sh $CHANNEL_NAME $CLI_DELAY $MAX_RETRY $VERBOSE
 }
 
 
