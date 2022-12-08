@@ -303,16 +303,16 @@ approveForMyOrg 1
 
 ## check whether the chaincode definition is ready to be committed
 ## expect hospital to have approved and org2 not to
-checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
-checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
+# checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
+# checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
 
 ## now approve also for insurance
 approveForMyOrg 2
 
 ## check whether the chaincode definition is ready to be committed
 ## expect them both to have approved
-checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
-checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
+# checkCommitReadiness 1 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
+# checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": true"
 
 ## now that we know for sure both orgs have approved, commit the definition
 commitChaincodeDefinition 1 2 3
