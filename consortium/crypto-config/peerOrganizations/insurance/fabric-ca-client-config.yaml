@@ -40,7 +40,7 @@
 #############################################################################
 
 # URL of the Fabric-ca-server (default: http://localhost:7054)
-url: https://34.101.204.172:9054
+url: https://34.101.138.254:8054
 
 # Membership Service Provider (MSP) directory
 # This is useful when the client is used to enroll a peer or orderer, so
@@ -117,7 +117,7 @@ csr:
       O: Hyperledger
       OU: Fabric
   hosts:
-    - host1-ehr-system
+    - host3-ehr-system
 
 #############################################################################
 #  Registration section used to register a new identity with fabric-ca server
