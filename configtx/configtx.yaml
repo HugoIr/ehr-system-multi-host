@@ -33,7 +33,7 @@ Organizations:
                 Rule: "OR('OrdererMSP.admin')"
 
         OrdererEndpoints:
-            - "orderer.example.com:7050"
+            - "34.101.204.172:7050"
 
     - &Hospital
     

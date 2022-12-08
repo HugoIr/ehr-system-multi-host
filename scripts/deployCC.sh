@@ -282,7 +282,7 @@ chaincodeQuery() {
   fi
 }
 
-package the chaincode
+# package the chaincode
 packageChaincode
 
 ## Install chaincode on peer0.hospital and peer0.org2
