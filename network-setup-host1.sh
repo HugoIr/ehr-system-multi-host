@@ -100,6 +100,15 @@ function deployCCAll() {
   fi
 }
 
+function deployCCAll2() {
+  FABRIC_CFG_PATH=$PWD/config/
+  docker exec cli scripts/deployCC-second.sh $CHANNEL_NAME $CC_NAME $CC_SRC_PATH $CC_SRC_LANGUAGE $CC_VERSION $CC_SEQUENCE $CC_INIT_FCN $CC_END_POLICY $CC_COLL_CONFIG $CLI_DELAY $MAX_RETRY $VERBOSE
+
+  if [ $? -ne 0 ]; then
+    fatalln "Deploying chaincode failed"
+  fi
+}
+
 # Generate orderer system channel genesis block.
 function createConsortium() {
   which configtxgen
@@ -468,6 +477,8 @@ elif [ "${MODE}" == "deployCC" ]; then
   deployCC
 elif [ "${MODE}" == "deployCCAll" ]; then
   deployCCAll  
+elif [ "${MODE}" == "deployCCAll2" ]; then
+  deployCCAll2    
 elif [ "${MODE}" == "down" ]; then
   networkDown
 else
