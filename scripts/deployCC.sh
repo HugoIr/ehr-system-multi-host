@@ -283,17 +283,17 @@ chaincodeQuery() {
 }
 
 # package the chaincode
-packageChaincode
+# packageChaincode
 
-## Install chaincode on peer0.hospital and peer0.org2
-infoln "Installing chaincode on peer0.hospital..."
-installChaincode 1
+# ## Install chaincode on peer0.hospital and peer0.org2
+# infoln "Installing chaincode on peer0.hospital..."
+# installChaincode 1
 
-infoln "Install chaincode on peer1.hospital..."
-installChaincode 3
+# infoln "Install chaincode on peer1.hospital..."
+# installChaincode 3
 
-infoln "Install chaincode on peer0.insurance..."
-installChaincode 2
+# infoln "Install chaincode on peer0.insurance..."
+# installChaincode 2
 
 # query whether the chaincode is installed
 queryInstalled 1
