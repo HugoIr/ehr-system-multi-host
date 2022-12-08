@@ -282,7 +282,7 @@ chaincodeQuery() {
   fi
 }
 
-# package the chaincode
+# # package the chaincode
 # packageChaincode
 
 # ## Install chaincode on peer0.hospital and peer0.org2
@@ -307,7 +307,7 @@ queryInstalled 1
 # checkCommitReadiness 2 "\"HospitalMSP\": true" "\"InsuranceMSP\": false"
 
 ## now approve also for insurance
-# approveForMyOrg 2
+approveForMyOrg 2
 
 ## check whether the chaincode definition is ready to be committed
 ## expect them both to have approved
