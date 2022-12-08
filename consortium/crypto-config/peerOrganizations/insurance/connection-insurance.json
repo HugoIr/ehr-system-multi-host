@@ -1,0 +1,49 @@
+{
+    "name": "healthcare-network-insurance",
+    "version": "1.0.0",
+    "client": {
+        "organization": "insurance",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "insurance": {
+            "mspid": "insuranceMSP",
+            "peers": [
+                "peer0.insurance"
+            ],
+            "certificateAuthorities": [
+                "ca.insurance"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.insurance": {
+            "url": "grpcs://34.101.138.254:9051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICJzCCAc6gAwIBAgIUTsNp5TvaZERj3JvZmsq9+WKpVEgwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIyMTIwODExNTQwMFoXDTM3MTIwNDExNTQwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE66Yy1axrWggoobDnn6oPARmV\nPbykZVQ7DTk3jPglEG/RSBSElYvndt/F5EQLUJuq/+wzzzCNRIM4hm8YE5W+eKNW\nMFQwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFO1gkIuY7E5HaqEt2D0YooY0LcooMA8GA1UdEQQIMAaHBCJliv4wCgYIKoZIzj0E\nAwIDRwAwRAIgYyhdRoLGA1QDengdzV0cj/iuGm8it11bh9Bda0OpbA4CIHZRN/BF\n3qvqHhm17MbBYjsd3P1Aps1iJxLM3XqeHrM+\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.insurance",
+                "hostnameOverride": "peer0.insurance"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.insurance": {
+            "url": "https://34.101.138.254:8054",
+            "caName": "ca.insurance",
+            "tlsCACerts": {
+                "pem": ["-----BEGIN CERTIFICATE-----\nMIICJzCCAc6gAwIBAgIUTsNp5TvaZERj3JvZmsq9+WKpVEgwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIyMTIwODExNTQwMFoXDTM3MTIwNDExNTQwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE66Yy1axrWggoobDnn6oPARmV\nPbykZVQ7DTk3jPglEG/RSBSElYvndt/F5EQLUJuq/+wzzzCNRIM4hm8YE5W+eKNW\nMFQwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFO1gkIuY7E5HaqEt2D0YooY0LcooMA8GA1UdEQQIMAaHBCJliv4wCgYIKoZIzj0E\nAwIDRwAwRAIgYyhdRoLGA1QDengdzV0cj/iuGm8it11bh9Bda0OpbA4CIHZRN/BF\n3qvqHhm17MbBYjsd3P1Aps1iJxLM3XqeHrM+\n-----END CERTIFICATE-----\n"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
