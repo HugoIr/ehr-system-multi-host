@@ -142,8 +142,8 @@ Application: &ApplicationDefaults
             Type: ImplicitMeta
             Rule: "ANY Endorsement"
         Endorsement:
-            Type: Signature
-            Rule: "OR(OutOf(2, 'HospitalMSP.peer', 'HospitalMSP.peer'), OutOf(2, 'HospitalMSP.peer', 'InsuranceMSP.peer'))"
+            Type: ImplicitMeta
+            Rule: "ANY Endorsement"
 
 
     Capabilities:
