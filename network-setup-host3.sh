@@ -418,7 +418,6 @@ else
 fi
 
 if [ "${MODE}" == "up" ]; then
-  createConsortium
   networkUp
 elif [ "${MODE}" == "ca" ]; then
   sudo docker compose -f docker/docker-compose-ca-insurance.yaml up -d

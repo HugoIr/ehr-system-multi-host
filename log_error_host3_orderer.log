@@ -1,0 +1,117 @@
+2022-12-14 13:23:34.439 UTC [orderer.consensus.etcdraft] Step -> INFO 041 3 [logterm: 2, index: 4, vote: 2] rejected MsgPreVote from 1 [logterm: 1, index: 3] at term 2 channel=system-channel node=3
+2022-12-14 13:23:35.438 UTC [orderer.consensus.etcdraft] Step -> INFO 042 3 [logterm: 2, index: 4, vote: 2] rejected MsgPreVote from 1 [logterm: 1, index: 3] at term 2 channel=system-channel node=3
+2022-12-14 13:23:36.438 UTC [orderer.consensus.etcdraft] Step -> INFO 043 3 [logterm: 2, index: 4, vote: 2] rejected MsgPreVote from 1 [logterm: 1, index: 3] at term 2 channel=system-channel node=3
+2022-12-14 13:24:41.717 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 044 Writing block [1] (Raft index: 5) to ledger channel=system-channel node=3
+2022-12-14 13:24:41.718 UTC [blkstorage] newBlockfileMgr -> INFO 045 Getting block information from block storage
+2022-12-14 13:24:41.729 UTC [orderer.consensus.etcdraft] HandleChain -> INFO 046 EvictionSuspicion not set, defaulting to 10m0s
+2022-12-14 13:24:41.730 UTC [orderer.consensus.etcdraft] createOrReadWAL -> INFO 047 No WAL data found, creating new WAL at path '/var/hyperledger/production/orderer/etcdraft/wal/hospital-channel' channel=hospital-channel node=3
+2022-12-14 13:24:41.737 UTC [orderer.commmon.multichannel] newChain -> INFO 048 Created and starting new channel hospital-channel
+2022-12-14 13:24:41.737 UTC [orderer.consensus.etcdraft] Start -> INFO 049 Starting Raft node channel=hospital-channel node=3
+2022-12-14 13:24:41.737 UTC [orderer.common.cluster] Configure -> INFO 04a Entering, channel: hospital-channel, nodes: [ID: 1,
+Endpoint: 34.101.204.172:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIC0DCCAnagAwIBAgIUJSjU1yVvY7HZHbq1Z22A9dfRXM4wCgYIKoZIzj0EAwIw
+aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+Y2Etc2VydmVyMB4XDTIyMTIxNDEyMDQwMFoXDTIzMTIxNDEyMTMwMFowYDELMAkG
+A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+cmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEQMA4GA1UEAxMHb3JkZXJlcjBZMBMG
+ByqGSM49AgEGCCqGSM49AwEHA0IABBcC60bC49IefxI74ygVjAvjsScyiv+OzoPD
+jQINvpb3O5w+bj5GmGbLLNs8r9WKfS4bYx8kfsv2xX9MQDqFdAmjggEEMIIBADAO
+BgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwG
+A1UdEwEB/wQCMAAwHQYDVR0OBBYEFDkkuuAclI0hc7XOLehnvutyVlMFMB8GA1Ud
+IwQYMBaAFFDWqOJwCqL4dxb/Da8ruMgtPjE8MCQGA1UdEQQdMBuCE29yZGVyZXIu
+ZXhhbXBsZS5jb22HBCJlzKwwWwYIKgMEBQYHCAEET3siYXR0cnMiOnsiaGYuQWZm
+aWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVyIiwiaGYuVHlw
+ZSI6Im9yZGVyZXIifX0wCgYIKoZIzj0EAwIDSAAwRQIhAJ09JYJj3SauGWv15xDx
+696RM8Y3hOaasI7adaocejmnAiBixj/MWCg//YIezHTXvYMPabFFBYfFKRzcOjQ9
+EkCjlQ==
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIC0DCCAnagAwIBAgIUJSjU1yVvY7HZHbq1Z22A9dfRXM4wCgYIKoZIzj0EAwIw
+aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+Y2Etc2VydmVyMB4XDTIyMTIxNDEyMDQwMFoXDTIzMTIxNDEyMTMwMFowYDELMAkG
+A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+cmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjEQMA4GA1UEAxMHb3JkZXJlcjBZMBMG
+ByqGSM49AgEGCCqGSM49AwEHA0IABBcC60bC49IefxI74ygVjAvjsScyiv+OzoPD
+jQINvpb3O5w+bj5GmGbLLNs8r9WKfS4bYx8kfsv2xX9MQDqFdAmjggEEMIIBADAO
+BgNVHQ8BAf8EBAMCA6gwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwG
+A1UdEwEB/wQCMAAwHQYDVR0OBBYEFDkkuuAclI0hc7XOLehnvutyVlMFMB8GA1Ud
+IwQYMBaAFFDWqOJwCqL4dxb/Da8ruMgtPjE8MCQGA1UdEQQdMBuCE29yZGVyZXIu
+ZXhhbXBsZS5jb22HBCJlzKwwWwYIKgMEBQYHCAEET3siYXR0cnMiOnsiaGYuQWZm
+aWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQiOiJvcmRlcmVyIiwiaGYuVHlw
+ZSI6Im9yZGVyZXIifX0wCgYIKoZIzj0EAwIDSAAwRQIhAJ09JYJj3SauGWv15xDx
+696RM8Y3hOaasI7adaocejmnAiBixj/MWCg//YIezHTXvYMPabFFBYfFKRzcOjQ9
+EkCjlQ==
+-----END CERTIFICATE-----
+ ID: 2,
+Endpoint: 34.128.89.87:8050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIIC0jCCAnmgAwIBAgIUINqUeWuNRyFsOElCblB1WmoDmGEwCgYIKoZIzj0EAwIw
+aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+Y2Etc2VydmVyMB4XDTIyMTIxNDEyMDQwMFoXDTIzMTIxNDEyMTMwMFowYTELMAkG
+A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+cmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjERMA8GA1UEAxMIb3JkZXJlcjIwWTAT
+BgcqhkjOPQIBBggqhkjOPQMBBwNCAAQGoWyofHC/ZPhjVr9b/us+DNpHFRe7soXT
+qwa2O3QhtyjogMdDa1rFyry84vFSR8M2t1BpVFw2tRvbrEPpglJfo4IBBjCCAQIw
+DgYDVR0PAQH/BAQDAgOoMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAM
+BgNVHRMBAf8EAjAAMB0GA1UdDgQWBBSRI3stgZV3i0T9KhmN+FVExFWayzAfBgNV
+HSMEGDAWgBRQ1qjicAqi+HcW/w2vK7jILT4xPDAlBgNVHREEHjAcghRvcmRlcmVy
+Mi5leGFtcGxlLmNvbYcEIoBZVzBcBggqAwQFBgcIAQRQeyJhdHRycyI6eyJoZi5B
+ZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIyIiwiaGYu
+VHlwZSI6Im9yZGVyZXIifX0wCgYIKoZIzj0EAwIDRwAwRAIgBxRXZcumare+ktxL
+eLUcsf9G6g/1YdTZrUez48l7DCQCIHszwvKpcoaqW66Ftp7cxLaqcZ0LVwrjwFfg
+tqTZZo1c
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIIC0jCCAnmgAwIBAgIUINqUeWuNRyFsOElCblB1WmoDmGEwCgYIKoZIzj0EAwIw
+aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+Y2Etc2VydmVyMB4XDTIyMTIxNDEyMDQwMFoXDTIzMTIxNDEyMTMwMFowYTELMAkG
+A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+cmxlZGdlcjEQMA4GA1UECxMHb3JkZXJlcjERMA8GA1UEAxMIb3JkZXJlcjIwWTAT
+BgcqhkjOPQIBBggqhkjOPQMBBwNCAAQGoWyofHC/ZPhjVr9b/us+DNpHFRe7soXT
+qwa2O3QhtyjogMdDa1rFyry84vFSR8M2t1BpVFw2tRvbrEPpglJfo4IBBjCCAQIw
+DgYDVR0PAQH/BAQDAgOoMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAM
+BgNVHRMBAf8EAjAAMB0GA1UdDgQWBBSRI3stgZV3i0T9KhmN+FVExFWayzAfBgNV
+HSMEGDAWgBRQ1qjicAqi+HcW/w2vK7jILT4xPDAlBgNVHREEHjAcghRvcmRlcmVy
+Mi5leGFtcGxlLmNvbYcEIoBZVzBcBggqAwQFBgcIAQRQeyJhdHRycyI6eyJoZi5B
+ZmZpbGlhdGlvbiI6IiIsImhmLkVucm9sbG1lbnRJRCI6Im9yZGVyZXIyIiwiaGYu
+VHlwZSI6Im9yZGVyZXIifX0wCgYIKoZIzj0EAwIDRwAwRAIgBxRXZcumare+ktxL
+eLUcsf9G6g/1YdTZrUez48l7DCQCIHszwvKpcoaqW66Ftp7cxLaqcZ0LVwrjwFfg
+tqTZZo1c
+-----END CERTIFICATE-----
+]
+2022-12-14 13:24:41.738 UTC [orderer.common.cluster] updateStubInMapping -> INFO 04b Allocating a new stub for node 1 with endpoint of 34.101.204.172:7050 for channel hospital-channel
+2022-12-14 13:24:41.738 UTC [orderer.common.cluster] updateStubInMapping -> INFO 04c Deactivating node 1 in channel hospital-channel with endpoint of 34.101.204.172:7050 due to TLS certificate change
+2022-12-14 13:24:41.738 UTC [orderer.common.cluster] updateStubInMapping -> INFO 04d Allocating a new stub for node 2 with endpoint of 34.128.89.87:8050 for channel hospital-channel
+2022-12-14 13:24:41.738 UTC [orderer.common.cluster] updateStubInMapping -> INFO 04e Deactivating node 2 in channel hospital-channel with endpoint of 34.128.89.87:8050 due to TLS certificate change
+2022-12-14 13:24:41.738 UTC [orderer.common.cluster] func1 -> INFO 04f 1 exists in both old and new membership for channel hospital-channel , skipping its deactivation
+2022-12-14 13:24:41.738 UTC [orderer.common.cluster] func1 -> INFO 050 2 exists in both old and new membership for channel hospital-channel , skipping its deactivation
+2022-12-14 13:24:41.739 UTC [orderer.common.cluster] Configure -> INFO 051 Exiting
+2022-12-14 13:24:41.739 UTC [orderer.consensus.etcdraft] start -> INFO 052 Starting raft node as part of a new channel channel=hospital-channel node=3
+2022-12-14 13:24:41.739 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 053 3 became follower at term 0 channel=hospital-channel node=3
+2022-12-14 13:24:41.739 UTC [orderer.consensus.etcdraft] newRaft -> INFO 054 newRaft 3 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0] channel=hospital-channel node=3
+2022-12-14 13:24:41.739 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 055 3 became follower at term 1 channel=hospital-channel node=3
+2022-12-14 13:24:41.739 UTC [orderer.consensus.etcdraft] run -> INFO 056 This node is picked to start campaign channel=hospital-channel node=3
+2022-12-14 13:24:41.740 UTC [orderer.commmon.multichannel] commitBlock -> PANI 057 [channel: system-channel] Could not append block: unexpected Previous block hash. Expected PreviousHash = [7d7aa82042ccb0d144571501ef05320759c21b1099483016e102260fffeae0ae], PreviousHash referred in the latest block= [971ecf2c18162cf0bcf08332c6110f66599f9a12407e8861b47fcd466354497f]
+panic: [channel: system-channel] Could not append block: unexpected Previous block hash. Expected PreviousHash = [7d7aa82042ccb0d144571501ef05320759c21b1099483016e102260fffeae0ae], PreviousHash referred in the latest block= [971ecf2c18162cf0bcf08332c6110f66599f9a12407e8861b47fcd466354497f]
+
+goroutine 600 [running]:
+go.uber.org/zap/zapcore.(*CheckedEntry).Write(0xc0009b0000, {0x0, 0x0, 0x0})
+        /go/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/zapcore/entry.go:230 +0x486
+go.uber.org/zap.(*SugaredLogger).log(0xc0000101a8, 0x4, {0xe79221?, 0x0?}, {0xc00096bf60?, 0x0?, 0x0?}, {0x0, 0x0, 0x0})
+        /go/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:234 +0x13b
+go.uber.org/zap.(*SugaredLogger).Panicf(...)
+        /go/src/github.com/hyperledger/fabric/vendor/go.uber.org/zap/sugar.go:159
+github.com/hyperledger/fabric/common/flogging.(*FabricLogger).Panicf(...)
+        /go/src/github.com/hyperledger/fabric/common/flogging/zap.go:74
+github.com/hyperledger/fabric/orderer/common/multichannel.(*BlockWriter).commitBlock(0xc0003ee180, {0xc0000f9a50, 0x9, 0x9})
+        /go/src/github.com/hyperledger/fabric/orderer/common/multichannel/blockwriter.go:186 +0x165
+github.com/hyperledger/fabric/orderer/common/multichannel.(*BlockWriter).WriteBlock.func1()
+        /go/src/github.com/hyperledger/fabric/orderer/common/multichannel/blockwriter.go:174 +0x6a
+created by github.com/hyperledger/fabric/orderer/common/multichannel.(*BlockWriter).WriteBlock
+        /go/src/github.com/hyperledger/fabric/orderer/common/multichannel/blockwriter.go:172 +0x105
+hugo_irwanto91@host3-ehr-system:~/ehr-system-multi-host$ 

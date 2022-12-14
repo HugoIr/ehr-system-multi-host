@@ -408,7 +408,6 @@ else
 fi
 
 if [ "${MODE}" == "up" ]; then
-  createConsortium
   networkUp
 elif [ "${MODE}" == "createChannel" ]; then
   createChannel
