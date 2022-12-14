@@ -27,7 +27,7 @@ services:
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
-      - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:19050
+      # - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:19050
       # enabled TLS
       - ORDERER_GENERAL_TLS_ENABLED=true
       - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
@@ -46,7 +46,7 @@ services:
         - orderer3.example.com:/var/hyperledger/production/orderer
     ports:
       - 9050:9050
-      - 19050:19050
+      # - 19050:19050
     networks:
       - healthcare-network-1
 
