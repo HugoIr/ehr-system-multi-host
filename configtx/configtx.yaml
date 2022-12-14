@@ -162,12 +162,12 @@ Application: &ApplicationDefaults
 Orderer: &OrdererDefaults
     OrdererType: etcdraft
     Addresses:
-        - orderer.example.com:7050
+        - 34.101.204.172:7050
         - 34.128.89.87:8050
         - 34.101.138.254:9050
     EtcdRaft:
         Consenters:
-        - Host: orderer.example.com
+        - Host: 34.101.204.172
           Port: 7050
           ClientTLSCert: ../consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
           ServerTLSCert: ../consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
