@@ -1,0 +1,63 @@
+---
+name: hospital-network-insurance
+version: 1.0.0
+client:
+  organization: insurance
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  insurance:
+    mspid: insuranceMSP
+    peers:
+    - peer0.insurance
+    certificateAuthorities:
+    - ca.insurance
+peers:
+  peer0.insurance:
+    url: grpcs://34.101.138.254:9051
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICJzCCAc6gAwIBAgIUSZ+VRXyKQP/JlPCDTEzQ1N/c88cwCgYIKoZIzj0EAwIw
+          aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+          EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+          Y2Etc2VydmVyMB4XDTIyMTIxNDEyMTEwMFoXDTM3MTIxMDEyMTEwMFowaDELMAkG
+          A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+          cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+          dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEho++eoCKAQCKVa8JjICNpqXg
+          Sa7LNA6XJJ2xszzpHoc+I7oWuHrCpTy9mvx4VBgMcXn8NZ/5swH+nPWWgD67naNW
+          MFQwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+          FOXdbt6GJBwri3/EBwW3OcuHUu8wMA8GA1UdEQQIMAaHBCJliv4wCgYIKoZIzj0E
+          AwIDRwAwRAIgbxeyZt9S1HABihPnwftt+iNGf4cXe4V8LcoRUQwuRsICIDfFiOdp
+          w3AmUjwQ+7daEEHZ/ozORwzcO/FZ6JYoTqpP
+          -----END CERTIFICATE-----
+          
+    grpcOptions:
+      ssl-target-name-override: peer0.insurance
+      hostnameOverride: peer0.insurance
+certificateAuthorities:
+  ca.insurance:
+    url: https://34.101.138.254:8054
+    caName: ca.insurance
+    tlsCACerts:
+      pem: 
+        - |
+          -----BEGIN CERTIFICATE-----
+          MIICJzCCAc6gAwIBAgIUSZ+VRXyKQP/JlPCDTEzQ1N/c88cwCgYIKoZIzj0EAwIw
+          aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+          EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+          Y2Etc2VydmVyMB4XDTIyMTIxNDEyMTEwMFoXDTM3MTIxMDEyMTEwMFowaDELMAkG
+          A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+          cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+          dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEho++eoCKAQCKVa8JjICNpqXg
+          Sa7LNA6XJJ2xszzpHoc+I7oWuHrCpTy9mvx4VBgMcXn8NZ/5swH+nPWWgD67naNW
+          MFQwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+          FOXdbt6GJBwri3/EBwW3OcuHUu8wMA8GA1UdEQQIMAaHBCJliv4wCgYIKoZIzj0E
+          AwIDRwAwRAIgbxeyZt9S1HABihPnwftt+iNGf4cXe4V8LcoRUQwuRsICIDfFiOdp
+          w3AmUjwQ+7daEEHZ/ozORwzcO/FZ6JYoTqpP
+          -----END CERTIFICATE-----
+          
+    httpOptions:
+      verify: false

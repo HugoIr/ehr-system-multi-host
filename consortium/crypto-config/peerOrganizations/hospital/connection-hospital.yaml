@@ -1,0 +1,86 @@
+---
+name: hospital-network-hospital
+version: 1.0.0
+client:
+  organization: hospital
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  hospital:
+    mspid: hospitalMSP
+    peers:
+    - peer0.hospital
+    - peer1.hospital
+    certificateAuthorities:
+    - ca.hospital
+peers:
+  peer0.hospital:
+    url: grpcs://34.101.204.172:7051
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICLTCCAdSgAwIBAgIUIQt9WqfyStmjd3DKmJBkuIngVYYwCgYIKoZIzj0EAwIw
+          aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+          EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+          Y2Etc2VydmVyMB4XDTIyMTIxNDEyMDQwMFoXDTM3MTIxMDEyMDQwMFowaDELMAkG
+          A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+          cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+          dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4ve78VyEQyecgEyf8Y/TyAd0
+          WC82Od+wHBkzJ/aJnVvjHIOajs2CdE1sJ2e2xitofC7NVn7aq9d+YyRAvBOwNaNc
+          MFowDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+          FGW/jclLnX/pK5LhfnEbeCDPHuPbMBUGA1UdEQQOMAyHBCJlzKyHBCKAWVcwCgYI
+          KoZIzj0EAwIDRwAwRAIgXM1y//yx/8z2jb75XIoj++oF3PJv7vdGlMsnpmxpMEMC
+          IAqPpz0rvKRnNoMwsFexR1Xkalf+EvFkbbqHsFb2NODB
+          -----END CERTIFICATE-----
+          
+    grpcOptions:
+      ssl-target-name-override: peer0.hospital
+      hostnameOverride: peer0.hospital
+  peer1.hospital:
+    url: grpcs://34.101.204.172:8051
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICLTCCAdSgAwIBAgIUIQt9WqfyStmjd3DKmJBkuIngVYYwCgYIKoZIzj0EAwIw
+          aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+          EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+          Y2Etc2VydmVyMB4XDTIyMTIxNDEyMDQwMFoXDTM3MTIxMDEyMDQwMFowaDELMAkG
+          A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+          cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+          dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4ve78VyEQyecgEyf8Y/TyAd0
+          WC82Od+wHBkzJ/aJnVvjHIOajs2CdE1sJ2e2xitofC7NVn7aq9d+YyRAvBOwNaNc
+          MFowDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+          FGW/jclLnX/pK5LhfnEbeCDPHuPbMBUGA1UdEQQOMAyHBCJlzKyHBCKAWVcwCgYI
+          KoZIzj0EAwIDRwAwRAIgXM1y//yx/8z2jb75XIoj++oF3PJv7vdGlMsnpmxpMEMC
+          IAqPpz0rvKRnNoMwsFexR1Xkalf+EvFkbbqHsFb2NODB
+          -----END CERTIFICATE-----
+          
+    grpcOptions:
+      ssl-target-name-override: peer1.hospital
+      hostnameOverride: peer1.hospital
+certificateAuthorities:
+  ca.hospital:
+    url: https://34.101.204.172:7054
+    caName: ca.hospital
+    tlsCACerts:
+      pem: 
+        - |
+          -----BEGIN CERTIFICATE-----
+          MIICLTCCAdSgAwIBAgIUIQt9WqfyStmjd3DKmJBkuIngVYYwCgYIKoZIzj0EAwIw
+          aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+          EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+          Y2Etc2VydmVyMB4XDTIyMTIxNDEyMDQwMFoXDTM3MTIxMDEyMDQwMFowaDELMAkG
+          A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+          cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+          dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4ve78VyEQyecgEyf8Y/TyAd0
+          WC82Od+wHBkzJ/aJnVvjHIOajs2CdE1sJ2e2xitofC7NVn7aq9d+YyRAvBOwNaNc
+          MFowDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+          FGW/jclLnX/pK5LhfnEbeCDPHuPbMBUGA1UdEQQOMAyHBCJlzKyHBCKAWVcwCgYI
+          KoZIzj0EAwIDRwAwRAIgXM1y//yx/8z2jb75XIoj++oF3PJv7vdGlMsnpmxpMEMC
+          IAqPpz0rvKRnNoMwsFexR1Xkalf+EvFkbbqHsFb2NODB
+          -----END CERTIFICATE-----
+          
+    httpOptions:
+      verify: false
