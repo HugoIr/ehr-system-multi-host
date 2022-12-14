@@ -1,0 +1,2 @@
+docker exec cli peer channel create -o orderer.example.com:7050 -c hospital-channel  -f ./channel-artifacts/hospital-channel.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/consortium/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+sleep 5
