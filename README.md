@@ -1,64 +1,23 @@
-Start Docker First
 
-cd src/
-./startFabric.sh
+Untuk menjalankan jaringan Fabric secara keseluruhan dapat mengunduh source code implemnetasi pada repository Github sebagai berikut https://github.com/HugoIr/ehr-system. Setelah itu, dapat menjalankan perintah-perintah berikut secara berurutan:
 
-clean src/wallet/ dir if neccessary
-node enrollAdmin.js && node registerUser.js
-node query.js
-
-darimana hyperledger tau nama contract yang kita buat?
-pada startFabric.sh, ada command sbg berikut
-./network.sh deployCC -ccn ehr -ccv 1 -cci initLedger -ccl ${CC_SRC_LANGUAGE} -ccp ${CC_SRC_PATH}
-
-CC_SRC_PATH disini adalah alamat chaincode kita.
-
-
-TUTORIAL CARA BUAT THIS APP FROM SCRATCH
-
-init folder docker, consortium, ..
-
-add docker-compose-ca.yaml di folder docker dan isi dengan basic setup ca for docker compose
-run those file: docker compose -f ./docker/docker-compose-ca.yaml up -d
-
-
-take a look at generate-certificate.sh code
-ada baris yang menjalankan fabric-ca-client enroll
-DARIMANA DATANGNYA KAH? pdhl kan kita ga define fungsi tsb
-asalnya dari folder bin di root, di dalamnya ada file fabric-ca-client yang merupakan executable program (?)
-
-lalu, gimana pakai fabric-ca-client pada generate-certificate.sh?
-dengan mendefine lokasi bin, export PATH=${PWD}/bin:$PATH
- 
-
-docker compose -f docker/docker-compose-ca.yaml up -d
-./generate-certificate.sh
-
-
-
-
-NOTES TERBARUU!!!
-DONT FORGET TO CLEAN UP USING ./network-setup.sh down
-^ Tujuannya supaya sampah2 di dockernya di clean up
-
-STEPP DARI AWALL BANGET
 ./network-setup.sh down
+    Perintah ini berfungsi untuk menghentikan container dan menghapus \textit{certificates}, \textit{channel artifact}, \textit{system genesis block}, log, dan \textit{file chaincode} pada jaringan Fabric. Tujuan penghapusan ini adalah agar sistem dapat kembali dijalankan seperti semula tanpa adanya konflik dengan file yang sudah pernah dibuat.
+
 docker compose -f docker/docker-compose-ca.yaml up -d
+    Perintah ini berfungsi untuk menjalankan container Certificate Authority (CA) pada Docker dimana CA ini memiliki fungsi yang sama dengan CA seperti pada umumnya, yaitu untuk menerbitkan suatu sertifikat atas entitas yang digunakan sebagai pengenal dari entitas tersebut.
+
 ./generate-certificate.sh
-./network-setup.sh up 
-./network-setup.sh createChannel
+    Perintah ini dapat dijalankan setelah CA dijalankan karena perintah ini berisikan script untuk melakukan enroll pada CA dan menyimpan certificates yang sudah diterbitkan oleh CA.
+
+./network--setup.sh up
+    Perintah ini berfungsi untuk membuat \textit{orderer genesis block} dan menjalankan container peer, orderer, fabric-tools, dan CouchDB dengan \textit{environment} Docker yang telah disesuaikan sehingga koneksi antara masing-masing peer dapat terjadi.
+        
+./network--setup.sh createChannel
+    Melakukan pembuatan channel dengan beberapa tahapan yaitu pembuatan konfigurasi transaksi channel, penggabungan \textit{peer} ke channel, serta melakukan penambahan konfigurasi channel agar dapat mengenali \textit{anchor peer} dari masing-masing organisasi.
+
 ./network-setup.sh deployCC
+    Menjalankan perintah untuk pembuatan \textit{package chaincode} dan melakukan instalasi \textit{chaincode} pada masing-masing peer. Selanjutnya, dilakukan penyetujuan chaincode oleh \textit{organization} agar organization tersebut dapat menggunakan chaincode. Approval chaincode ini memerlukan minimum \textit{organization} untuk menyetujuinya sebagaimana ditetapkan pada LifecycleEndorsement \textit{policy} \citep{hyperledger}. Terakhir, dilakukan commit 
+
 ./consortium/ccp-generate.sh
-
-docker compose -f docker/docker-compose-ca-hospital.yaml up -d
-
-docker compose -f docker/docker-compose-net-host1.yaml up -d
-docker compose -f docker/docker-compose-net-peer1hospital.yaml up -d
-docker compose -f docker/docker-compose-net-peer0insurance.yaml up -d
-
-
-docker-compose -f docker/docker-compose-net-host1.yaml down --volumes --remove-orphans
-docker-compose -f $COMPOSE_FILE_COUCH_ORG3 -f $COMPOSE_FILE_ORG3 down --volumes --remove-orphans
-
-sudo docker compose -f docker/docker-compose-net-host1.yaml -f docker/docker-compose-ca-hospital.yaml down --volumes --remove-orphans
-  docker-compose -f $COMPOSE_FILE_COUCH_ORG3 -f $COMPOSE_FILE_ORG3 down --volumes --remove-orphans
+    Merupakan file script yang digunakan untuk membuat file Common Connection Profile (CCP). CCP ini dibuat mengikuti kerangka format yang dibuat pada ccp-template.json dan ccp-template.yaml. CCP ini berisikan informasi untuk koneksi dengan jaringan Fabric.
